@@ -1,0 +1,13 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    &__icon {
+        transform: scale(1.5);
+        margin: 8px;
+    }
+}
