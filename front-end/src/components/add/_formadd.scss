@@ -1,0 +1,12 @@
+.formadd {
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &__next {
+        position: fixed;
+        bottom: 8%;
+        background-color: white;
+    }
+}
