@@ -8,7 +8,7 @@ import User from "./components/user/User";
 import ProtectedRoute from "./components/utils/Protectedroute";
 
 function App() {
-
+  localStorage.setItem("isAuthenticated", "true");
   return (
     <BrowserRouter>
       <Routes>
