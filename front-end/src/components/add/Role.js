@@ -1,8 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-function Role() {
+function Role({formData, setFormData, setDisabled}) {
   return (
-    <div className="formadd">
+    <div>
       <h1>Quels rôles jouais-tu durant cette partie?</h1>
       <FormControl sx={{
         width: 200,
@@ -13,14 +13,17 @@ function Role() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          //value={role}
+          value={formData.role}
           label="role"
-          //onChange={handleChange}
+          onChange={(e) => {
+            setFormData({...formData, role: e.target.value})
+            setDisabled(false)
+          }}
         >
           <MenuItem value={"toplane"}>Toplane</MenuItem>
           <MenuItem value={"jungle"}>Jungle</MenuItem>
           <MenuItem value={"midlane"}>Midlane</MenuItem>
-          <MenuItem value={"ADC"}>ADC</MenuItem>
+          <MenuItem value={"adc"}>ADC</MenuItem>
           <MenuItem value={"support"}>Support</MenuItem>
         </Select>
       </FormControl>

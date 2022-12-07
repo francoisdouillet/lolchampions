@@ -2,7 +2,7 @@ import Allchamp from "../utils/Allchamp";
 
 function Champ(){
     return (
-        <div className="formadd">
+        <div>
             <h1>Quels champions jouais-tu? </h1>
             <Allchamp />
         </div>
