@@ -6,6 +6,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background-color: rgb(228, 228, 228);
     &__icon {
         transform: scale(1.5);

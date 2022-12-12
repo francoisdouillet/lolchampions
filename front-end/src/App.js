@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signin from "./components/auth/Signin";
 import Signup from "./components/auth/Signup";
 import Home from "./components/home/Home";
-import Add from "./components/add/Add";
+import Add from "./components/add/index";
 import User from "./components/user/User";
 import ProtectedRoute from "./components/utils/Protectedroute";
 
 function App() {
-
+  localStorage.setItem("isAuthenticated", "true");
   return (
     <BrowserRouter>
       <Routes>

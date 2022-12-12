@@ -1,11 +1,11 @@
 .champions {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 35%;
     justify-content: center;
     & img {
         width: 15%;
         margin: 8px;
+        box-sizing: border-box;
     }
     &__search {
         min-width: 80%;
@@ -15,7 +15,7 @@
         min-width: 100vw;
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 35%;
+        margin-bottom: 30%;
         justify-content: center;
     }
 }

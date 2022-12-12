@@ -1,6 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-function Role({formData, setFormData, setDisabled}) {
+function Role({formData, setFormData, setDisabled, page, setPage}) {
   return (
     <div>
       <h1>Quels rôles jouais-tu durant cette partie?</h1>
@@ -18,6 +18,7 @@ function Role({formData, setFormData, setDisabled}) {
           onChange={(e) => {
             setFormData({...formData, role: e.target.value})
             setDisabled(false)
+            setPage(page + 1)
           }}
         >
           <MenuItem value={"toplane"}>Toplane</MenuItem>

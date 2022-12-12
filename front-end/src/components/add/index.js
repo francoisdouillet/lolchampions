@@ -4,8 +4,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
 import Role from "./Role";
-import Champ from "./Champ";
-import Test from "../utils/test";
+import Mychamp from "./Mychamp";
+import Hischamp from "./HisChamp";
 
 function Add() {
   const [page, setPage] = useState(0);
@@ -21,57 +21,31 @@ function Add() {
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <Role formData={formData} setFormData={setFormData} setDisabled={setDisabled}/>;
+      return <Role formData={formData} setFormData={setFormData} setDisabled={setDisabled} page={page} setPage={setPage}/>;
     } else if (page === 1) {
-      return <Champ />;
+      return <Mychamp formData={formData} setFormData={setFormData} setDisabled={setDisabled} page={page} setPage={setPage}/>;
+    } else if (page === 2) {
+      return <Hischamp formData={formData} setFormData={setFormData} setDisabled={setDisabled} page={page} setPage={setPage}/>
     }
   };
-  let test = Test()
-  console.log(test)
 
   return (
     <div className="formadd">
       <PageDisplay />
       {page === 0 ? (
-        <Button disabled={disabled}>
-          <ArrowForwardIcon
-            onClick={() => {
-              setPage((currPage) => currPage + 1);
-              setDisabled(true)
-            }}
-            className="formadd__next"
-            sx={{
-              width: "100%",
-              height: "10%",
-            }}
-          />
-        </Button>
+        <Button></Button>
       ) : (
         <>
           <Button>
             <ArrowBackIcon
               onClick={() => {
                 setPage((currPage) => currPage - 1);
-                setDisabled(false)
               }}
-              className="formadd__next"
+              className="formadd__back"
               sx={{
-                width: "50%",
+                width: "100%",
                 height: "10%",
                 left: 0,
-              }}
-            />
-          </Button>
-          <Button disabled={disabled}>
-            <ArrowForwardIcon
-              onClick={() => {
-                setPage((currPage) => currPage + 1);
-              }}
-              className="formadd__next"
-              sx={{
-                width: "50%",
-                height: "10%",
-                right: 0,
               }}
             />
           </Button>
