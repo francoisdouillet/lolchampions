@@ -9,4 +9,16 @@
         bottom: 8%;
         background-color: white;
     }
+    &__send {
+        position: fixed;
+    }
+    &__champions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+        & img {
+            width: 30%;
+        }
+    }
 }
