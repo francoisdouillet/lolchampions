@@ -1,17 +1,11 @@
 .formadd {
-    padding-top: 10%;
+    width:  100%;
+    padding-top: 3vh;
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    &__back {
-        position: fixed;
-        bottom: 8%;
-        background-color: white;
-    }
-    &__send {
-        position: fixed;
-    }
     &__champions {
         display: flex;
         align-items: center;
@@ -20,5 +14,18 @@
         & img {
             width: 30%;
         }
+    }
+    &__checkbox {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__lastPage {
+        width: 100%;
+        height: 73vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
     }
 }

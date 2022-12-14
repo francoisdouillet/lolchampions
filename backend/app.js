@@ -31,7 +31,9 @@ mongoose.connect(process.env.DB_URI, {
 app.use(bodyParser.json());
 
 const userRoutes = require("./routes/user");
+const matchupRoutes = require('./routes/matchup')
 
 app.use("/api/auth", userRoutes);
+app.use("/api/add", matchupRoutes)
 
 module.exports = app;  

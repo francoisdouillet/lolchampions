@@ -1,0 +1,12 @@
+.navigation {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__button {
+            position: fixed;
+            bottom: 10vh;
+            background-color: white;
+    }
+
+}
