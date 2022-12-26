@@ -17,6 +17,8 @@ function Searchchamp({ champ, page, setPage }) {
     return product.includes(searchVal);
   });
 
+  //return cocktail.strDrink.toLowerCase().includes(searchTerm.toLowerCase());
+
   function selected(product) {
     champ(product)
     setPage(page + 1)
