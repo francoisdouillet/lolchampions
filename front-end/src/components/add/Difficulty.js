@@ -67,7 +67,7 @@ function Difficulty({ formData, setFormData, setPage }) {
         </Select>
         <div className="formadd__checkbox">
           <div>
-            <h3>Game gagné ?</h3>
+            <h2>Game gagné ?</h2>
             <Checkbox
               checked={formData.win === true}
               onChange={(e) => {
@@ -76,7 +76,7 @@ function Difficulty({ formData, setFormData, setPage }) {
             />
           </div>
           <div>
-            <h3>Match-up gagné ?</h3>
+            <h2>Match-up gagné ?</h2>
             <Checkbox
               checked={formData.winMatchup === true}
               onChange={(e) => {
@@ -85,7 +85,7 @@ function Difficulty({ formData, setFormData, setPage }) {
             />
           </div>
         </div>
-        <h2>Commentaires</h2>
+        <h2 style={{fontSize: '1.2rem'}}>Commentaires</h2>
         <TextField
           sx={{
             width: "80%",
