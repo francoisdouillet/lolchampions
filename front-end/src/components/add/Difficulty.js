@@ -99,7 +99,7 @@ function Difficulty({ formData, setFormData, setPage }) {
             setCommentary(e.target.value);
           }}
           multiline
-          rows={3}
+          rows={2}
         />
         <div className="navigation formadd__navigation">
           <ArrowBackIcon
