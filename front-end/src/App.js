@@ -8,6 +8,12 @@ import User from "./components/user/User";
 import ProtectedRoute from "./components/utils/Protectedroute";
 
 function App() {
+
+    const meta = document.createElement('meta');
+    meta.name = 'viewport';
+    meta.content = 'width=device-width, initial-scale=1';
+    document.head.appendChild(meta);
+
   localStorage.setItem("isAuthenticated", "true");
   return (
     <BrowserRouter>
