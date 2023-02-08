@@ -19,11 +19,11 @@ function Difficulty({ formData, setFormData, setPage }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/add/matchup",
+        "http://localhost:3000/api/matchup/",
         { ...formData, commentary: commentary }
       );
       console.log(response);
-      alert("tas réussi");
+      alert("Matchup ajouté !");
       navigate("/");
     } catch (error) {
       console.error(error);

@@ -2,7 +2,7 @@ import Auth from "./components/auth/Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signin from "./components/auth/Signin";
 import Signup from "./components/auth/Signup";
-import Home from "./components/home/Home";
+import Home from "./components/home/index";
 import Add from "./components/add/index";
 import User from "./components/user/User";
 import ProtectedRoute from "./components/utils/Protectedroute";
@@ -13,8 +13,7 @@ function App() {
     meta.name = 'viewport';
     meta.content = 'width=device-width, initial-scale=1';
     document.head.appendChild(meta);
-
-  localStorage.setItem("isAuthenticated", "true");
+    
   return (
     <BrowserRouter>
       <Routes>
