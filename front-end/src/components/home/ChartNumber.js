@@ -2,9 +2,7 @@ import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 
 
-const ChartData = ({ data }) => {
-    // console.log('ChartData')
-    // console.log(data)
+const ChartNumber = ({ data }) => {
     const chartData = {
         labels: data.map(entry => entry.x),
         datasets: [
@@ -27,21 +25,18 @@ const ChartData = ({ data }) => {
                 ticks: {
                     stepSize: 1,
                 },
-                default: 0
             },
             x: {
                 ticks: {
                     callback: (value, index, values) => {
                         if(index === 0) {
-                            return new Date().toLocaleDateString()
+                            return data[value].x
                         }
                         if(index === values.length - 1) {
-                            return new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString();
+                            return data[value].x
                         }
-
                         return null;
                     },
-                    offset: true,
                 },
             },
         },
@@ -50,4 +45,4 @@ const ChartData = ({ data }) => {
     return <Line data={chartData} options={options} />;
 };
 
-export default ChartData;
+export default ChartNumber;

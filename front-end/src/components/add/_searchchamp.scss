@@ -2,11 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    & img {
-        width: 15%;
-        margin: 8px;
-        box-sizing: border-box;
-    }
     &__search {
         min-width: 80%;
         height: 10%;
@@ -17,5 +12,10 @@
         flex-wrap: wrap;
         margin-bottom: 18vh;
         justify-content: center;
+        & img {
+            width: 15%;
+            margin: 8px;
+            box-sizing: border-box;
+        }
     }
 }

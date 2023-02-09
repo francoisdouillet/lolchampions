@@ -20,7 +20,7 @@ function Add() {
     winMatchup: false,
   });
 
-  console.log(formData);
+  //console.log(formData);
 
   const PageDisplay = () => {
     if (page === 0) {

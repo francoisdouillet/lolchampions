@@ -17,7 +17,7 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <div className="home">
             <Graphic matchups={matchups}/>
             <NavBar />
         </div>
