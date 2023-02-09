@@ -34,6 +34,6 @@ const userRoutes = require("./routes/user");
 const matchupRoutes = require('./routes/matchup')
 
 app.use("/api/auth", userRoutes);
-app.use("/api/add", matchupRoutes)
+app.use("/api/matchup", matchupRoutes)
 
 module.exports = app;  

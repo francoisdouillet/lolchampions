@@ -4,6 +4,7 @@ const router = express.Router();
 
 const matchupCtrl = require('../controllers/matchup')
 
-router.post("/matchup", matchupCtrl.displayMatchup);
+router.post("/", matchupCtrl.displayMatchup);
+router.get("/:id", matchupCtrl.getMatchups)
 
 module.exports = router;

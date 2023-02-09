@@ -9,6 +9,7 @@ const matchupSchema = mongoose.Schema({
     commentary: {type: String, required: false},
     win: {type: Boolean, required: true},
     winMatchup: {type: Boolean, required: true},
+    date: {type: Date, default: Date.now}
 })
 
 module.exports = mongoose.model("Matchup", matchupSchema);
