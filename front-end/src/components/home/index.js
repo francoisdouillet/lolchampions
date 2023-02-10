@@ -1,24 +1,16 @@
 import NavBar from "../navbar/Navbar";
 import Graphic from "./Graphic";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
-function Home() {
-    const [matchups, setMatchups] = useState([])
-    useEffect(() => {
-        const userId = localStorage.getItem('userId')
-        axios.get(`http://localhost:3000/api/matchup/${userId}`)
-            .then(response => {
-                setMatchups(response.data)
-            })
-            .catch(error => {
-                console.error(error)
-            });
-    }, []);
+function Home({matchups}) {
 
     return (
         <div className="home">
-            <Graphic matchups={matchups}/>
+            <Graphic matchups={matchups} />
+            <Link to="/historic">
+                <Button variant="contained">Historique</Button>
+            </Link>
             <NavBar />
         </div>
     )

@@ -1,4 +1,4 @@
-.graphic {
+.graphic,  .historic {
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
@@ -7,6 +7,50 @@
     text-align: center;
 }
 
+.historic {
+    margin-bottom: 12vh;
+    &__container {
+        margin-top: 5vh;
+    }
+    &__matchup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90vw;
+        height: 10vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        & img {
+            height: 100%;
+        }
+        &--hischamp {
+            height: 100%;
+            width: 20vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px solid rgb(0, 0, 0);
+            & img {
+                height: 80%;
+            }
+            &.win {
+                background-color: rgb(0, 116, 0);
+            }
+            &.loose {
+                background-color: rgb(182, 0, 0);
+            }
+        }
+        &.win {
+            background-color: rgb(0, 116, 0);
+        }
+        &.loose {
+            background: rgb(182, 0, 0);
+        }
+    }
+}
+
 .home {
     margin-bottom: 12vh;
 }
+
