@@ -1,4 +1,4 @@
-import Chart from 'chart.js/auto';
+
 import { Line } from 'react-chartjs-2';
 
 

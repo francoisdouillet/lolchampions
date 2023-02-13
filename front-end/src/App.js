@@ -4,7 +4,7 @@ import Signin from "./components/auth/Signin";
 import Signup from "./components/auth/Signup";
 import Home from "./components/home/index";
 import Add from "./components/add/index";
-import User from "./components/user/User";
+import User from "./components/user/index";
 import ProtectedRoute from "./components/utils/Protectedroute";
 import Historic from "./components/home/historic/Historic";
 import { useEffect, useState } from "react";
@@ -12,22 +12,20 @@ import axios from "axios";
 
 function App() {
 
-  const meta = document.createElement('meta');
-  meta.name = 'viewport';
-  meta.content = 'width=device-width, initial-scale=1';
-  document.head.appendChild(meta);
-
   const [matchups, setMatchups] = useState([])
+  const [reload, setReload] = useState(false);
+
   useEffect(() => {
       const userId = localStorage.getItem('userId')
       axios.get(`http://localhost:3000/api/matchup/${userId}`)
           .then(response => {
-              setMatchups(response.data)
+              setMatchups(response.data.reverse())
+              setReload(false)
           })
           .catch(error => {
               console.error(error)
           });
-  }, []);
+  }, [reload]);
 
 
   return (
@@ -40,7 +38,7 @@ function App() {
           path="/"
           element={
             <ProtectedRoute>
-              <Home matchups={matchups} />
+              <Home matchups={matchups} setReload={setReload} />
             </ProtectedRoute>
           }
         />
@@ -48,7 +46,7 @@ function App() {
           path="/historic"
           element={
             <ProtectedRoute>
-              <Historic matchups={matchups}/>
+              <Historic matchups={matchups} setReload={setReload} />
             </ProtectedRoute>
           }
         />

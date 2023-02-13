@@ -1,10 +1,11 @@
 import NavBar from "../navbar/Navbar";
+import UserInfo from "./UserInfo";
 
 function User() {
     return (
         <div>
+            <UserInfo />
             <NavBar />
-            <p>user</p>
         </div>
     )
 }

@@ -46,7 +46,6 @@ function Graphic({ matchups }) {
     }
 
     const { data: formattedData, roleCount } = formatData(matchups);
-    console.log(roleCount)
 
     return (
         <div className="graphic">

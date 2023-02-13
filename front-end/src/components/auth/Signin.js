@@ -38,6 +38,7 @@ function Signin() {
         localStorage.setItem("isAuthenticated", "true");
         localStorage.setItem("token", response.data.token)
         localStorage.setItem("userId", response.data.userId)
+        localStorage.setItem("username", response.data.username)
         navigate('/');
       })
 
