@@ -1,6 +1,21 @@
 import NavBar from "../../navbar/Navbar"
+import { useState } from "react"
 
 const Historic = ({ matchups }) => {
+
+    const [id, setId] = useState()
+    const [isOpen, setIsOpen] = useState(false)
+
+    console.log(id)
+
+    function handleClick(_id) {
+        if(isOpen === true && id === _id) {
+            setIsOpen(false)
+        } else {
+            setIsOpen(true)
+            setId(_id)
+        }
+    }
 
     return (
         <div className="historic">
@@ -9,7 +24,7 @@ const Historic = ({ matchups }) => {
                 {Object.entries(matchups).map(([key, value]) => {
                     return (
                         <div>
-                            <div className={`historic__matchup ${value.win === true ? 'win' : 'loose'}`} key={value._id}>
+                            <div className={`historic__matchup ${value.win === true ? 'win' : 'loose'}`} key={key} onClick={() => handleClick(value._id) }>
                                 <img
                                     alt={value.myChamp}
                                     src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${value.myChamp}.png`}
@@ -21,6 +36,18 @@ const Historic = ({ matchups }) => {
                                     />
                                 </div>
                             </div>
+                            {id === value._id && isOpen === true && (
+                                <div className="historic__matchup--commentary">
+                                    <div>
+                                        <p>Difficulté :</p>
+                                        <p>{value.difficulty}</p>
+                                    </div>
+                                    <div>
+                                        <p>Commentaire :</p>
+                                        <p>{value.commentary}</p>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     )
                 })}
