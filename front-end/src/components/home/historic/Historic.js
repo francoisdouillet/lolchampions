@@ -1,13 +1,12 @@
 import NavBar from "../../navbar/Navbar"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import InfiniteScroll from 'react-infinite-scroller';
+import Allmatchups from "../../utils/Allmatchups";
 
-const Historic = ({ matchups, setReload }) => {
+const Historic = () => {
 
-    useEffect(() => {
-        setReload(true);
-      }, [setReload]);
-    
+    const matchups = Allmatchups();
+
     const [id, setId] = useState()
     const [isOpen, setIsOpen] = useState(false)
 

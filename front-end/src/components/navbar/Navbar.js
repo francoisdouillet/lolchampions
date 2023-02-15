@@ -1,5 +1,6 @@
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import HomeIcon from "@mui/icons-material/Home";
 import { IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -10,6 +11,11 @@ function NavBar() {
       <Link to="/">
         <IconButton color="primary">
           <HomeIcon className="navbar__icon" />
+        </IconButton>
+      </Link>
+      <Link to="/champions">
+        <IconButton color="primary">
+          <BookmarkAddIcon className='navbar__icon'/>
         </IconButton>
       </Link>
       <Link to="/add">

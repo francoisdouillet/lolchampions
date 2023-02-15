@@ -4,7 +4,6 @@ import Allchamps from "../utils/Allchamp";
 
 function Searchchamp({ champ, page, setPage }) {
   const champs = Allchamps();
-
   const [searchVal, setSearchVal] = useState("");
 
   const handleInput = (e) => {
@@ -45,7 +44,7 @@ function Searchchamp({ champ, page, setPage }) {
             onClick={() => { selected(product) }}
             key={i}
             alt={product}
-            src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${product}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${product}.png`}
           />
         ))}
       </div>

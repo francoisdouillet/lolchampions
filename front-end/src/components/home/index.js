@@ -2,13 +2,11 @@ import NavBar from "../navbar/Navbar";
 import Graphic from "./Graphic";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import Allmatchups from "../utils/Allmatchups";
 
-function Home({matchups, setReload}) {
+function Home() {
 
-    useEffect(() => {
-        setReload(true);
-      }, [setReload]);
+    const matchups = Allmatchups();
 
     return (
         <div className="home">
