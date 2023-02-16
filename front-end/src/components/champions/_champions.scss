@@ -3,6 +3,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20vh;
     &__role {
         display: flex;
         justify-content: space-around;
@@ -35,6 +36,10 @@
             & textarea {
                 width: 80%;
             }
+        }
+        &--selected {
+            display: flex;
+            justify-content: center;
         }
     }
 }

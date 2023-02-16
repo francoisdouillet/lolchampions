@@ -7,7 +7,6 @@ import ChooseSpells from "./ChooseSpells"
 
 const ChampionsForm = () => {
     const [page, setPage] = useState(0)
-    console.log(page)
 
     const userId = localStorage.getItem('userId')
     const [formData, setFormData] = useState({
