@@ -8,12 +8,9 @@ import User from "./components/user/index";
 import ProtectedRoute from "./components/utils/Protectedroute";
 import Historic from "./components/home/historic/Historic";
 import Champions from "./components/champions";
-import Allrunes from "./components/utils/Allrunes";
+import ChampionsForm from "./components/champions/form";
 
 function App() {
-
-  const runes = Allrunes()
-  console.log(runes)
   return (
     <BrowserRouter>
       <Routes>
@@ -41,6 +38,14 @@ function App() {
         element= {
           <ProtectedRoute>
             <Champions />
+          </ProtectedRoute>
+        }
+        />
+        <Route 
+        path="/champions/add"
+        element= {
+          <ProtectedRoute>
+            <ChampionsForm />
           </ProtectedRoute>
         }
         />

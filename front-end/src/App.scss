@@ -7,12 +7,14 @@
 @import url('./components/add/_navigation.scss');
 @import url('./components/home/_home.scss');
 @import url('./components/user/_account.scss');
+@import url('./components/champions/_champions.scss');
 
 * {
     font-family: 'Roboto';
     margin: 0;
 
 }
+
 a {
     color: white;
     text-decoration: none;

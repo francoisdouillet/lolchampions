@@ -24,9 +24,9 @@ function Searchchamp({ champ, page, setPage }) {
   }
 
   return (
-    <div className="champions">
+    <div className="searchchampions">
       <OutlinedInput
-        className="champions__search"
+        className="searchchampions__search"
         onChange={handleInput}
         value={searchVal}
         type="text"
@@ -38,7 +38,7 @@ function Searchchamp({ champ, page, setPage }) {
           mb: 2,
         }}
       />
-      <div className="champions__champ">
+      <div className="searchchampions__champ">
         {filteredProducts.map((product, i) => (
           <img
             onClick={() => { selected(product) }}
