@@ -1,8 +1,8 @@
 import { useState } from "react"
-import Navigation from "../../add/Navigation"
 import NavBar from "../../navbar/Navbar"
 import ChooseChampion from "./ChooseChampion"
 import ChooseRole from "./ChooseRole"
+import ChooseRunes from "./ChooseRunes"
 import ChooseSpells from "./ChooseSpells"
 
 const ChampionsForm = () => {
@@ -37,14 +37,26 @@ const ChampionsForm = () => {
             )
         } else if (page === 2) {
             return (
-                <ChooseSpells />
+                <ChooseSpells
+                    formData={formData}
+                    setFormData={setFormData}
+                    page={page}
+                    setPage={setPage}
+                />
+            )
+        } else if (page === 3) {
+            return (
+                <ChooseRunes
+                    formData={formData}
+                    setFormData={setFormData}
+                    page={page}
+                    setPage={setPage} />
             )
         }
     }
     return (
         <>
             <PageDisplay />
-            <Navigation page={page} setPage={setPage} />
             <NavBar />
         </>
     )

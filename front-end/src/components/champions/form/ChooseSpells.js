@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button } from "@mui/material";
 import Allspells from '../../utils/Allspells';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button } from "@mui/material";
 
-const ChooseSpells = () => {
+const ChooseSpells = ({setFormData, formData, page, setPage }) => {
     const [spellSets, setSpellSets] = useState([{
         title: '',
         spells: [],
@@ -21,7 +22,7 @@ const ChooseSpells = () => {
     }
 
     function addSpellToSet(index, spell) {
-        if(spellSets[index].spells.length === 2) {
+        if (spellSets[index].spells.length === 2) {
             alert('Vous ne pouvez choisir que deux summoners')
         } else {
             console.log(spellSets[index])
@@ -66,6 +67,11 @@ const ChooseSpells = () => {
         const newSpellSets = [...spellSets];
         newSpellSets[index] = newSpellSet;
         setSpellSets(newSpellSets);
+    }
+
+    function onSubmit() {
+        setFormData({...formData, spells: spellSets})
+        setPage(page + 1)
     }
     return (
         <div className='champions'>
@@ -117,6 +123,22 @@ const ChooseSpells = () => {
             <Button variant="contained" onClick={addSpellSet}>
                 Ajoutez un ensemble de summoners
             </Button>
+            <div className='champions__navigation'>
+                <Button>
+                    <ArrowBackIcon
+                        onClick={() => {
+                            setPage((page) => page - 1);
+                        }}
+                        sx={{
+                            width: "50vw",
+                            height: "8vh",
+                        }}
+                    />
+                </Button>
+                <Button variant='contained' sx={{marginRight: '8vw', height: '100%'}} onClick={onSubmit}>
+                    Suivant
+                </Button>
+            </div>
         </div>
     );
 
