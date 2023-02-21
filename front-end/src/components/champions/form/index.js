@@ -3,6 +3,7 @@ import NavBar from "../../navbar/Navbar"
 import ChooseChampion from "./ChooseChampion"
 import ChooseRole from "./ChooseRole"
 import ChooseRunes from "./ChooseRunes"
+import ChooseRuneNew from "./ChooseRunesNew"
 import ChooseSpells from "./ChooseSpells"
 
 const ChampionsForm = () => {
@@ -46,11 +47,12 @@ const ChampionsForm = () => {
             )
         } else if (page === 3) {
             return (
-                <ChooseRunes
-                    formData={formData}
-                    setFormData={setFormData}
-                    page={page}
-                    setPage={setPage} />
+                // <ChooseRunes
+                //     formData={formData}
+                //     setFormData={setFormData}
+                //     page={page}
+                //     setPage={setPage} />
+                <ChooseRuneNew />
             )
         }
     }
