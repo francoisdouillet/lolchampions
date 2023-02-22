@@ -2,7 +2,6 @@ import { useState } from "react"
 import NavBar from "../../navbar/Navbar"
 import ChooseChampion from "./ChooseChampion"
 import ChooseRole from "./ChooseRole"
-import ChooseRunes from "./ChooseRunes"
 import ChooseRuneNew from "./ChooseRunesNew"
 import ChooseSpells from "./ChooseSpells"
 

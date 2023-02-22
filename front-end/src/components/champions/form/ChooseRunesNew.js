@@ -1,8 +1,11 @@
 import Allrunes from "../../utils/Allrunes"
 import { useState } from "react";
+import Allsousrunes from "../../utils/Allsousrunes";
 
 const ChooseRuneNew = () => {
     const runes = Allrunes();
+    const sousrunes = Allsousrunes();
+    
     const [runesSets, setRunesSets] = useState([{
         runes1: {
             name: '',
@@ -82,7 +85,7 @@ const ChooseRuneNew = () => {
     function addRuneToSet2(index, iRune, rune, iSlot) {
         const updatedRuneSet = [...runesSets]
         const selectedRuneSet = updatedRuneSet[index]
-        selectedRuneSet.runes2[rune] = {index: iSlot, rune: iRune};
+        selectedRuneSet.runes2[rune] = { index: iSlot, rune: iRune };
         setRunesSets(updatedRuneSet)
         console.log(runesSets)
     }
@@ -235,18 +238,54 @@ const ChooseRuneNew = () => {
                                     <div>
                                         {runesSets[index].runes2.name && (
                                             runes.find(rune => rune.name === runesSets[index].runes2.name).slots[2].runes.map((rune, iRune) => (
-                                                <img alt={rune.name} src={rune.icon} onClick={() => addRuneToSet2(index, iRune, rune = 'rune2',2)} />
+                                                <img alt={rune.name} src={rune.icon} onClick={() => addRuneToSet2(index, iRune, rune = 'rune2', 2)} />
                                             ))
                                         )}
                                     </div>
                                     <div>
                                         {runesSets[index].runes2.name && (
                                             runes.find(rune => rune.name === runesSets[index].runes2.name).slots[3].runes.map((rune, iRune) => (
-                                                <img alt={rune.name} src={rune.icon} onClick={() => addRuneToSet2(index, iRune, rune = 'rune2',3)} />
+                                                <img alt={rune.name} src={rune.icon} onClick={() => addRuneToSet2(index, iRune, rune = 'rune2', 3)} />
                                             ))
                                         )}
                                     </div>
                                 </div>
+                            </div>
+                            <div className="champions__runesSelected--row little">
+                                <div className="champions__runesSelected--circle little">
+
+                                </div>
+                                {runesSets[index].runes2.name && (
+                                    sousrunes[0].slots[0].runes.map((rune, index) => (
+                                        <div className="sousrunes">
+                                            <img key={index} alt={rune.name} src={rune.icon} />
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                            <div className="champions__runesSelected--row little">
+                                <div className="champions__runesSelected--circle little">
+
+                                </div>
+                                {runesSets[index].runes2.name && (
+                                    sousrunes[0].slots[1].runes.map((rune, index) => (
+                                        <div className="sousrunes">
+                                            <img key={index} alt={rune.name} src={rune.icon} />
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                            <div className="champions__runesSelected--row little">
+                                <div className="champions__runesSelected--circle little">
+
+                                </div>
+                                {runesSets[index].runes2.name && (
+                                    sousrunes[0].slots[2].runes.map((rune, index) => (
+                                        <div className="sousrunes">
+                                            <img key={index} alt={rune.name} src={rune.icon} />
+                                        </div>
+                                    ))
+                                )}
                             </div>
                         </div>
                     </div>
