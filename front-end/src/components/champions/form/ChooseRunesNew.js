@@ -1,11 +1,12 @@
 import Allrunes from "../../utils/Allrunes"
 import { useState } from "react";
 import Allsousrunes from "../../utils/Allsousrunes";
+import { Button } from "@mui/material";
 
 const ChooseRuneNew = () => {
     const runes = Allrunes();
     const sousrunes = Allsousrunes();
-    
+
     const [runesSets, setRunesSets] = useState([{
         runes1: {
             name: '',
@@ -27,13 +28,36 @@ const ChooseRuneNew = () => {
         }
     }]);
 
+    function addRuneSet() {
+        setRunesSets([...runesSets, {
+            runes1: {
+                name: '',
+                rune1: '',
+                rune2: '',
+                rune3: '',
+                rune4: ''
+            },
+            runes2: {
+                name: '',
+                rune1: {
+                    index: '',
+                    rune: '',
+                },
+                rune2: {
+                    index: '',
+                    rune: '',
+                },
+            }
+        }]);
+    }
 
     function selectRunes(rune, index) {
         if (runesSets[index].runes1.name === rune || runesSets[index].runes2.name === rune) {
             return;
         }
         if (!runesSets[index].runes1.name) {
-            setRunesSets([{
+            const newRuneSet = {
+                ...runesSets[index],
                 runes1: {
                     name: rune,
                     rune1: '',
@@ -46,11 +70,15 @@ const ChooseRuneNew = () => {
                     rune1: runesSets[index].runes2.rune1,
                     rune2: runesSets[index].runes2.rune2,
                 }
-            }])
+            }
+            const newRuneSets = [...runesSets]
+            newRuneSets[index] = newRuneSet
+            setRunesSets(newRuneSets)
             return;
         }
         if (!runesSets[index].runes2.name) {
-            setRunesSets([{
+            const newRuneSet = {
+                ...runesSets[index],
                 runes1: {
                     name: runesSets[index].runes1.name,
                     rune1: runesSets[index].runes1.rune1,
@@ -69,7 +97,10 @@ const ChooseRuneNew = () => {
                         rune: '',
                     },
                 }
-            }])
+            }
+            const newRuneSets = [...runesSets]
+            newRuneSets[index] = newRuneSet
+            setRunesSets(newRuneSets)
             return;
         }
     }
@@ -256,9 +287,9 @@ const ChooseRuneNew = () => {
 
                                 </div>
                                 {runesSets[index].runes2.name && (
-                                    sousrunes[0].slots[0].runes.map((rune, index) => (
+                                    sousrunes[0].slots[0].runes.map((rune, iRune) => (
                                         <div className="sousrunes">
-                                            <img key={index} alt={rune.name} src={rune.icon} />
+                                            <img key={iRune} alt={rune.name} src={rune.icon} />
                                         </div>
                                     ))
                                 )}
@@ -268,9 +299,9 @@ const ChooseRuneNew = () => {
 
                                 </div>
                                 {runesSets[index].runes2.name && (
-                                    sousrunes[0].slots[1].runes.map((rune, index) => (
+                                    sousrunes[0].slots[1].runes.map((rune, iRune) => (
                                         <div className="sousrunes">
-                                            <img key={index} alt={rune.name} src={rune.icon} />
+                                            <img key={iRune} alt={rune.name} src={rune.icon} />
                                         </div>
                                     ))
                                 )}
@@ -280,9 +311,9 @@ const ChooseRuneNew = () => {
 
                                 </div>
                                 {runesSets[index].runes2.name && (
-                                    sousrunes[0].slots[2].runes.map((rune, index) => (
+                                    sousrunes[0].slots[2].runes.map((rune, iRune) => (
                                         <div className="sousrunes">
-                                            <img key={index} alt={rune.name} src={rune.icon} />
+                                            <img key={iRune} alt={rune.name} src={rune.icon} />
                                         </div>
                                     ))
                                 )}
@@ -291,6 +322,7 @@ const ChooseRuneNew = () => {
                     </div>
                 </div>
             ))}
+            <Button variant="contained" onClick={addRuneSet}>Ajouter un ensemble de rune</Button>
         </div>
     )
 }
