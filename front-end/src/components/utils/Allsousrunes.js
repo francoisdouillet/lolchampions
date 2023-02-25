@@ -5,61 +5,55 @@ import habilityhaste from '../../images/runes/sous-runes/habilityhaste.webp'
 import health from '../../images/runes/sous-runes/health.webp'
 import magicresist from '../../images/runes/sous-runes/magicresist.webp'
 
-export default function Allsousrunes () {
+export default function Allsousrunes() {
     const sousrunes = [
         {
-            "name": 'Sous-Runes',
-            "slots": [
+            "runes": [
                 {
-                    "runes": [
-                        {
-                            "name": 'Force adaptative',
-                            "icon": adaptative
-                        },
-                        {
-                            "name": 'Vitesse d\'attaque',
-                            "icon": attackspeed
-                        },
-                        {
-                            "name": 'Accèlération compétence',
-                            "icon": habilityhaste
-                        },
-                    ]
+                    "name": 'Force adaptative',
+                    "icon": adaptative
                 },
                 {
-                    "runes": [
-                        {
-                            "name": 'Force adaptative',
-                            "icon": adaptative
-                        },
-                        {
-                            "name": 'Armure',
-                            "icon": armor
-                        },
-                        {
-                            "name": 'Résistance magique',
-                            "icon": magicresist
-                        },
-                    ]
+                    "name": 'Vitesse d\'attaque',
+                    "icon": attackspeed
                 },
                 {
-                    "runes": [
-                        {
-                            "name": 'Armure',
-                            "icon": armor
-                        },
-                        {
-                            "name": 'Résistance magique',
-                            "icon": magicresist
-                        },
-                        {
-                            "name": 'Vie',
-                            "icon": health
-                        },
-                    ]
+                    "name": 'Accèlération compétence',
+                    "icon": habilityhaste
                 },
             ]
-            
+        },
+        {
+            "runes": [
+                {
+                    "name": 'Force adaptative',
+                    "icon": adaptative
+                },
+                {
+                    "name": 'Armure',
+                    "icon": armor
+                },
+                {
+                    "name": 'Résistance magique',
+                    "icon": magicresist
+                },
+            ]
+        },
+        {
+            "runes": [
+                {
+                    "name": 'Armure',
+                    "icon": armor
+                },
+                {
+                    "name": 'Résistance magique',
+                    "icon": magicresist
+                },
+                {
+                    "name": 'Vie',
+                    "icon": health
+                },
+            ]
         },
     ]
     return sousrunes

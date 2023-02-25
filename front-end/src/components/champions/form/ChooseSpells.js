@@ -1,17 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Allspells from '../../utils/Allspells';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button } from "@mui/material";
 
 const ChooseSpells = ({setFormData, formData, page, setPage }) => {
-    const [spellSets, setSpellSets] = useState([{
-        title: '',
-        spells: [],
-        notes: ''
-    }]);
+
+
+    const [spellSets, setSpellSets] = useState([]);
 
     const spells = Allspells()
+
+    useEffect(() => {
+        if(formData.spells.length === 0) {
+            setSpellSets([{
+                title: '',
+                spells: [],
+                notes: ''
+            }])
+        } else {
+            setSpellSets(formData.spells)
+        }
+    },[])
 
     function addSpellSet() {
         setSpellSets([...spellSets, {

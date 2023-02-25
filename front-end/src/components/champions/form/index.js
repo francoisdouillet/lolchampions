@@ -1,8 +1,9 @@
 import { useState } from "react"
 import NavBar from "../../navbar/Navbar"
 import ChooseChampion from "./ChooseChampion"
+import ChooseItems from "./ChooseItems"
 import ChooseRole from "./ChooseRole"
-import ChooseRuneNew from "./ChooseRunesNew"
+import ChooseRunes from "./ChooseRunes"
 import ChooseSpells from "./ChooseSpells"
 
 const ChampionsForm = () => {
@@ -13,7 +14,8 @@ const ChampionsForm = () => {
         userId: userId,
         role: "",
         champions: "",
-        spells: []
+        spells: [],
+        runes: []
     });
     console.log(formData)
     const PageDisplay = () => {
@@ -46,12 +48,16 @@ const ChampionsForm = () => {
             )
         } else if (page === 3) {
             return (
-                // <ChooseRunes
-                //     formData={formData}
-                //     setFormData={setFormData}
-                //     page={page}
-                //     setPage={setPage} />
-                <ChooseRuneNew />
+                <ChooseRunes
+                formData={formData}
+                setFormData={setFormData}
+                page={page}
+                setPage={setPage}
+                />
+            )
+        } else if (page === 4) {
+            return (
+                <ChooseItems />
             )
         }
     }
