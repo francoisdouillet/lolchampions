@@ -154,6 +154,42 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
         console.log(runesSets)
     }
 
+    function removeRune1(index) {
+        const updatedRuneSet = [...runesSets]
+        const selectedRuneSet = updatedRuneSet[index]
+        selectedRuneSet.runes1 = {
+            name: '',
+            rune1: '',
+            rune2: '',
+            rune3: '',
+            rune4: ''
+        }
+        setRunesSets(updatedRuneSet)
+
+    }
+    function removeRune2(index) {
+        const updatedRuneSet = [...runesSets]
+        const selectedRuneSet = updatedRuneSet[index]
+        selectedRuneSet.runes2 = {
+            name: '',
+            rune1: {
+                index: '',
+                rune: '',
+            },
+            rune2: {
+                index: '',
+                rune: '',
+            },
+        }
+        selectedRuneSet.runes3 = {
+            rune1: '',
+            rune2: '',
+            rune3: '',
+        }
+        setRunesSets(updatedRuneSet)
+
+    }
+
     function onSubmit() {
         setFormData({ ...formData, runes: runesSets })
         setPage(page + 1)
@@ -171,8 +207,8 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
                         ))}
                     </div>
                     <div className="champions__input">
-                        <input type="text" placeholder="Titre" value={rune.title} onChange={(event) => updateTitle(index, event.target.value)}/>
-                        <textarea placeholder="Notes" value={rune.notes} onChange={(event) => updateNotes(index, event.target.value)}/>
+                        <input type="text" placeholder="Titre" value={rune.title} onChange={(event) => updateTitle(index, event.target.value)} />
+                        <textarea placeholder="Notes" value={rune.notes} onChange={(event) => updateNotes(index, event.target.value)} />
                     </div>
                     <div className="champions__runesSelected">
                         <div className="champions__runesSelected--rune">
@@ -180,7 +216,7 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
                                 <div className="champions__runesSelected--circle">
                                     {runesSets[index].runes1.name && (
                                         <img alt={runes.find((rune) => rune.name === runesSets[index].runes1.name).name}
-                                            src={runes.find((rune) => rune.name === runesSets[index].runes1.name).icon} />
+                                            src={runes.find((rune) => rune.name === runesSets[index].runes1.name).icon} onClick={() => removeRune1(index)} />
                                     )}
                                 </div>
                             </div>
@@ -252,7 +288,7 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
                                 <div className="champions__runesSelected--circle">
                                     {runesSets[index].runes2.name && (
                                         <img alt={runes.find((rune) => rune.name === runesSets[index].runes2.name).name}
-                                            src={runes.find((rune) => rune.name === runesSets[index].runes2.name).icon} />
+                                            src={runes.find((rune) => rune.name === runesSets[index].runes2.name).icon} onClick={() => removeRune2(index)}/>
                                     )}
                                 </div>
                             </div>

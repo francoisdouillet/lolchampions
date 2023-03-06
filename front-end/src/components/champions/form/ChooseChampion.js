@@ -10,7 +10,7 @@ const ChooseChampion = ({formData, setFormData, page, setPage }) => {
         <div className="champions">
             <h1>Choisis le champion</h1>
          <Searchchamp champ={champ} page={page} setPage={setPage}/>
-         <div className='champions__navigation'>
+         {/* <div className='champions__navigation'>
                 <Button sx={{padding: '6px 0px'}}>
                     <ArrowBackIcon
                         onClick={() => {
@@ -22,7 +22,7 @@ const ChooseChampion = ({formData, setFormData, page, setPage }) => {
                         }}
                     />
                 </Button>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,10 +1,15 @@
 import { OutlinedInput } from "@mui/material";
 import { useState } from "react";
 import Allchamps from "../utils/Allchamp";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Button } from "@mui/material";
+
 
 function Searchchamp({ champ, page, setPage }) {
   const champs = Allchamps();
   const [searchVal, setSearchVal] = useState("");
+  const [selectedChamp, setSelectedChamp] = useState(null)
+  console.log(selectedChamp)
 
   const handleInput = (e) => {
     let firstLeter = e.target.value.charAt(0).toUpperCase();
@@ -16,11 +21,17 @@ function Searchchamp({ champ, page, setPage }) {
     return product.includes(searchVal);
   });
 
-  //return cocktail.strDrink.toLowerCase().includes(searchTerm.toLowerCase());
-
   function selected(product) {
-    champ(product)
-    setPage(page + 1)
+    setSelectedChamp(product)
+  }
+
+  function onSubmit() {
+    champ(selectedChamp)
+    if(selectedChamp !== null) {
+      setPage(page + 1)
+    } else {
+      alert('Veuillez séléctionner un champion')
+    }
   }
 
   return (
@@ -45,9 +56,29 @@ function Searchchamp({ champ, page, setPage }) {
             key={i}
             alt={product}
             src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${product}.png`}
+            style={{
+              border: selectedChamp === product ? "3px solid blue" : "",
+              cursor: "pointer"
+            }}
           />
         ))}
       </div>
+      <div className='champions__navigation'>
+                <Button>
+                    <ArrowBackIcon
+                        onClick={() => {
+                            setPage((page) => page - 1);
+                        }}
+                        sx={{
+                            width: "50vw",
+                            height: "8vh",
+                        }}
+                    />
+                </Button>
+                <Button variant='contained' sx={{marginRight: '8vw', height: '100%'}} onClick={onSubmit}>
+                    Suivant
+                </Button>
+            </div>
     </div>
   );
 }

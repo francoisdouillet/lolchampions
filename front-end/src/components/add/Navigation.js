@@ -2,11 +2,8 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
 
 function Navigation({page, setPage}) {
-    if (page === 0) {
+    if (page === 0 || page === 3 || page === 1) {
       return <></>;
-    }
-    if(page === 3) {
-      return <></>
     }
     return (
       <Button>

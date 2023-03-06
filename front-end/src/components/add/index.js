@@ -21,6 +21,7 @@ function Add() {
   });
 
   //console.log(formData);
+  console.log(page)
 
   const PageDisplay = () => {
     if (page === 0) {
