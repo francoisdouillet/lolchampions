@@ -1,10 +1,9 @@
-import Allitems from "../../utils/Allitems"
+import { useState } from "react"
 import SearchItems from "./SearchItems"
 
 const ChooseItems = () => {
 
-    const items = Allitems()
-    console.log(items)
+    const [itemsSet, setItemsSet] = useState()
     return (
         <div className="champions">
             <SearchItems />

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Allsousrunes from "../../utils/Allsousrunes";
 import { Button } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
     const runes = Allrunes();
@@ -189,8 +190,28 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
         setRunesSets(updatedRuneSet)
 
     }
-
     function onSubmit() {
+        for (let i = 0; i < runesSets.length; i++) {
+            const { runes1, runes2, runes3 } = runesSets[i];
+            if (
+                runes1.name === '' ||
+                runes1.rune1 === '' ||
+                runes1.rune2 === '' ||
+                runes1.rune3 === '' ||
+                runes1.rune4 === '' ||
+                runes2.name === '' ||
+                runes2.rune1.index === '' ||
+                runes2.rune1.rune === '' ||
+                runes2.rune2.index === '' ||
+                runes2.rune2.rune === '' ||
+                runes3.rune1 === '' ||
+                runes3.rune2 === '' ||
+                runes3.rune3 === ''
+            ) {
+                alert('Veuillez remplir toutes les informations')
+                return
+            }
+        }
         setFormData({ ...formData, runes: runesSets })
         setPage(page + 1)
     }
@@ -201,14 +222,19 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
             <h1>Quels runes utilisez-vous? </h1>
             {runesSets.map((rune, index) => (
                 <div key={index}>
+                    <div className="champions__runes--input">
+                        <div>
+                            <input type="text" placeholder="Titre" value={rune.title} onChange={(event) => updateTitle(index, event.target.value)} />
+                            <Button onClick={() => { if (window.confirm('Etes vous sur ?')) { setRunesSets(runesSets.filter((_, i) => i !== index)) } }}>
+                                <DeleteIcon />
+                            </Button>
+                        </div>
+                        <textarea placeholder="Notes" value={rune.notes} onChange={(event) => updateNotes(index, event.target.value)} />
+                    </div>
                     <div className="champions__runes">
                         {runes.map((rune) => (
                             <img src={rune.icon} alt={rune.name} onClick={() => selectRunes(rune.name, index)} />
                         ))}
-                    </div>
-                    <div className="champions__input">
-                        <input type="text" placeholder="Titre" value={rune.title} onChange={(event) => updateTitle(index, event.target.value)} />
-                        <textarea placeholder="Notes" value={rune.notes} onChange={(event) => updateNotes(index, event.target.value)} />
                     </div>
                     <div className="champions__runesSelected">
                         <div className="champions__runesSelected--rune">
@@ -288,7 +314,7 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
                                 <div className="champions__runesSelected--circle">
                                     {runesSets[index].runes2.name && (
                                         <img alt={runes.find((rune) => rune.name === runesSets[index].runes2.name).name}
-                                            src={runes.find((rune) => rune.name === runesSets[index].runes2.name).icon} onClick={() => removeRune2(index)}/>
+                                            src={runes.find((rune) => rune.name === runesSets[index].runes2.name).icon} onClick={() => removeRune2(index)} />
                                     )}
                                 </div>
                             </div>

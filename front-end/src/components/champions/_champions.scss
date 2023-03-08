@@ -47,12 +47,20 @@
         display: flex;
         justify-content: center;
         margin: 20px;
-    }
-    &__input {
-        display: flex;
-        flex-direction: column;
-        width: 80vw;
-        margin: 0 auto;
+        & img {
+            width: 15vw;
+        }
+        &--input {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            margin-top: 20px;
+            & div {
+                display: flex;
+                justify-content: space-between;
+                background-color: rgb(184, 184, 184);
+            }
+        }
     }
     &__runesSelected {
         display: flex;

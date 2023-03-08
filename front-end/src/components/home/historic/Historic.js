@@ -45,15 +45,15 @@ const Historic = () => {
                 hasMore={hasMore}
                 loader={
                     loading && (
-                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
                     )
                   }
             >
                 <div className="historic__container">
                     {items.map(([key, value]) => {
                         return (
-                            <div>
-                                <div className={`historic__matchup ${value.win === true ? 'win' : 'loose'}`} key={key} onClick={() => handleClick(value._id)}>
+                            <div key={key}>
+                                <div className={`historic__matchup ${value.win === true ? 'win' : 'loose'}`} onClick={() => handleClick(value._id)}>
                                     <img
                                         alt={value.myChamp}
                                         src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${value.myChamp}.png`}
