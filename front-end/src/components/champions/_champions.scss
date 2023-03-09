@@ -168,6 +168,12 @@
                 justify-content: center;
             }
     }
+    &__items {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80vw;
+    }
 
     &__navigation {
         z-index: 10;

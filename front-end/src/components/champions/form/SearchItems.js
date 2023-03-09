@@ -2,7 +2,7 @@ import { OutlinedInput } from "@mui/material";
 import { useState } from "react";
 import Allitems from "../../utils/Allitems";
 
-function SearchItems() {
+function SearchItems({itemsSelected, setItemsSelected}) {
   const items = Allitems();
   const [searchVal, setSearchVal] = useState("");
 
@@ -16,6 +16,10 @@ function SearchItems() {
     const itemName = item.name.toLowerCase();
     return itemName.includes(searchVal);
   });
+
+  function selected(image) {
+    setItemsSelected([...itemsSelected, image])
+  }
 
   return (
     <div className="champions__searchitems">
@@ -38,6 +42,7 @@ function SearchItems() {
             key={item.name}
             alt={item.name}
             src={`http://ddragon.leagueoflegends.com/cdn/13.4.1/img/item/${item.image}`}
+            onClick={() => {selected(item.image)}}
           />
         ))}
       </div>
