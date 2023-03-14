@@ -131,7 +131,7 @@ const ChooseSpells = ({setFormData, formData, page, setPage }) => {
                 </div>
             ))}
             <Button variant="contained" onClick={addSpellSet}>
-                Ajoutez un ensemble de summoners
+                Ajoutez un ensemble de spells
             </Button>
             <div className='champions__navigation'>
                 <Button>

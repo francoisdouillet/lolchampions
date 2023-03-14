@@ -1,5 +1,5 @@
 import Allrunes from "../../utils/Allrunes"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Allsousrunes from "../../utils/Allsousrunes";
 import { Button } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -37,7 +37,14 @@ const ChooseRunes = ({ setFormData, formData, page, setPage }) => {
         }
     };
 
-    const [runesSets, setRunesSets] = useState([defaultRuneSet]);
+    const [runesSets, setRunesSets] = useState([]);
+    useEffect(() => {
+        if(formData.runes.length === 0) {
+            setRunesSets([defaultRuneSet])
+        } else {
+            setRunesSets(formData.runes)
+        }
+    },[])
 
     function addRuneSet() {
         setRunesSets([...runesSets, defaultRuneSet]);

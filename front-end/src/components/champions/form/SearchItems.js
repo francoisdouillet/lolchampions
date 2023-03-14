@@ -2,11 +2,10 @@ import { OutlinedInput } from "@mui/material";
 import { useState } from "react";
 import Allitems from "../../utils/Allitems";
 
-function SearchItems({itemsSelected, setItemsSelected}) {
+function SearchItems({ itemsSet, setItemsSet, index }) {
   const items = Allitems();
   const [searchVal, setSearchVal] = useState("");
 
-  
   const handleInput = (e) => {
     const inputVal = e.target.value.trim().toLowerCase();
     setSearchVal(inputVal);
@@ -17,8 +16,18 @@ function SearchItems({itemsSelected, setItemsSelected}) {
     return itemName.includes(searchVal);
   });
 
-  function selected(image) {
-    setItemsSelected([...itemsSelected, image])
+  function selectItem(image) {
+    if (itemsSet[index].items.length === 8) {
+      alert("Vous ne pouvez choisir que 8 objets");
+    } else {
+      const newItemSet = {
+        ...itemsSet[index],
+        items: [...itemsSet[index].items, image],
+      };
+      const newItemsSets = [...itemsSet];
+      newItemsSets[index] = newItemSet;
+      setItemsSet(newItemsSets)
+    }
   }
 
   return (
@@ -42,7 +51,7 @@ function SearchItems({itemsSelected, setItemsSelected}) {
             key={item.name}
             alt={item.name}
             src={`http://ddragon.leagueoflegends.com/cdn/13.4.1/img/item/${item.image}`}
-            onClick={() => {selected(item.image)}}
+            onClick={() => {selectItem(item.image)}}
           />
         ))}
       </div>
