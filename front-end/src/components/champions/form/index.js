@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavBar from "../../navbar/Navbar";
 import ChooseChampion from "./ChooseChampion";
 import ChooseItems from "./ChooseItems";
+import ChooseMatchup from "./ChooseMatchup";
 import ChooseRole from "./ChooseRole";
 import ChooseRunes from "./ChooseRunes";
 import ChooseSkills from "./ChooseSkills";
@@ -18,6 +19,7 @@ const ChampionsForm = () => {
     spells: [],
     runes: [],
     items: [],
+    skills: [],
   });
   console.log(formData);
   const PageDisplay = () => {
@@ -70,8 +72,17 @@ const ChampionsForm = () => {
         return (
             <ChooseSkills 
             formData={formData}
+            setFormData={setFormData}
+            page={page}
+            setPage={setPage}
             />
         )
+    } else if (page === 6) {
+      return (
+        <ChooseMatchup 
+        formData={formData}
+        />
+      )
     }
   };
   return (

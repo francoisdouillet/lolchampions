@@ -1,31 +1,37 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchItems from "./SearchItems";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ChooseItems = ({formData, setFormData, page, setPage}) => {
-  const [itemsSet, setItemsSet] = useState([
-    {
-      title: "",
-      items: [],
-    },
-  ]);
+  const [itemsSets, setItemsSets] = useState([]);
+
+  useEffect(() => {
+    if(formData.items.length === 0) {
+        setItemsSets([{
+          title: "",
+          items: [],
+        }])
+    } else {
+        setItemsSets(formData.items)
+    }
+},[])
 
   function updateTitle(index, title) {
     const newItemSet = {
-      ...itemsSet[index],
+      ...itemsSets[index],
       title: title,
     };
-    const newItemsSets = [...itemsSet];
+    const newItemsSets = [...itemsSets];
     newItemsSets[index] = newItemSet;
-    setItemsSet(newItemsSets);
+    setItemsSets(newItemsSets);
   }
 
   function addItemSet() {
-    setItemsSet([
-      ...itemsSet,
+    setItemsSets([
+      ...itemsSets,
       {
         title: "",
         items: [],
@@ -34,15 +40,15 @@ const ChooseItems = ({formData, setFormData, page, setPage}) => {
   }
 
   function onSubmit() {
-      setFormData({...formData, items: itemsSet})
+      setFormData({...formData, items: itemsSets})
       setPage(page + 1)
   }
 
-  console.log(itemsSet);
+  console.log(itemsSets);
   return (
     <div className="champions">
       <h1>Quels runes utilisez-vous ?</h1>
-      {itemsSet.map((setItems, index) => (
+      {itemsSets.map((setItems, index) => (
         <div key={index}>
           <input
             type="text"
@@ -53,15 +59,15 @@ const ChooseItems = ({formData, setFormData, page, setPage}) => {
           <Button
             onClick={() => {
               if (window.confirm("Etes vous sur ?")) {
-                setItemsSet(itemsSet.filter((_, i) => i !== index));
+                setItemsSets(itemsSets.filter((_, i) => i !== index));
               }
             }}
           >
             <DeleteIcon />
           </Button>
           <SearchItems
-            setItemsSet={setItemsSet}
-            itemsSet={itemsSet}
+            setItemsSets={setItemsSets}
+            itemsSets={itemsSets}
             index={index}
           />
           <div className="champions__items">

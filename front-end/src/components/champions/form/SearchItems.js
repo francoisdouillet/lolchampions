@@ -2,7 +2,7 @@ import { OutlinedInput } from "@mui/material";
 import { useState } from "react";
 import Allitems from "../../utils/Allitems";
 
-function SearchItems({ itemsSet, setItemsSet, index }) {
+function SearchItems({ itemsSets, setItemsSets, index }) {
   const items = Allitems();
   const [searchVal, setSearchVal] = useState("");
 
@@ -17,16 +17,16 @@ function SearchItems({ itemsSet, setItemsSet, index }) {
   });
 
   function selectItem(image) {
-    if (itemsSet[index].items.length === 8) {
+    if (itemsSets[index].items.length === 8) {
       alert("Vous ne pouvez choisir que 8 objets");
     } else {
       const newItemSet = {
-        ...itemsSet[index],
-        items: [...itemsSet[index].items, image],
+        ...itemsSets[index],
+        items: [...itemsSets[index].items, image],
       };
-      const newItemsSets = [...itemsSet];
+      const newItemsSets = [...itemsSets];
       newItemsSets[index] = newItemSet;
-      setItemsSet(newItemsSets)
+      setItemsSets(newItemsSets)
     }
   }
 

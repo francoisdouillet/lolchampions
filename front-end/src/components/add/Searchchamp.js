@@ -27,7 +27,7 @@ function Searchchamp({ champ, page, setPage }) {
 
   function onSubmit() {
     champ(selectedChamp)
-    if(selectedChamp !== null) {
+    if (selectedChamp !== null) {
       setPage(page + 1)
     } else {
       alert('Veuillez séléctionner un champion')
@@ -35,7 +35,7 @@ function Searchchamp({ champ, page, setPage }) {
   }
 
   return (
-    <div className="searchchampions">
+    <div className={`searchchampions`}>
       <OutlinedInput
         className="searchchampions__search"
         onChange={handleInput}
@@ -64,21 +64,21 @@ function Searchchamp({ champ, page, setPage }) {
         ))}
       </div>
       <div className='champions__navigation'>
-                <Button>
-                    <ArrowBackIcon
-                        onClick={() => {
-                            setPage((page) => page - 1);
-                        }}
-                        sx={{
-                            width: "50vw",
-                            height: "8vh",
-                        }}
-                    />
-                </Button>
-                <Button variant='contained' sx={{marginRight: '8vw', height: '100%'}} onClick={onSubmit}>
-                    Suivant
-                </Button>
-            </div>
+        <Button>
+          <ArrowBackIcon
+            onClick={() => {
+              setPage((page) => page - 1);
+            }}
+            sx={{
+              width: "50vw",
+              height: "8vh",
+            }}
+          />
+        </Button>
+        <Button variant='contained' sx={{ marginRight: '8vw', height: '100%' }} onClick={onSubmit}>
+          Suivant
+        </Button>
+      </div>
     </div>
   );
 }
