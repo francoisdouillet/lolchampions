@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/utils/Protectedroute";
 import Historic from "./components/home/historic/Historic";
 import Champions from "./components/champions";
 import ChampionsForm from "./components/champions/form";
+import NavBar from "./components/navbar/Navbar";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+              <NavBar />
             </ProtectedRoute>
           }
         />
@@ -30,6 +32,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Historic />
+              <NavBar />
             </ProtectedRoute>
           }
         />
@@ -38,6 +41,7 @@ function App() {
         element= {
           <ProtectedRoute>
             <Champions />
+            <NavBar />
           </ProtectedRoute>
         }
         />
@@ -46,6 +50,7 @@ function App() {
         element= {
           <ProtectedRoute>
             <ChampionsForm />
+            <NavBar />
           </ProtectedRoute>
         }
         />
@@ -54,6 +59,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Add />
+              <NavBar />
             </ProtectedRoute>
           }
         />
@@ -62,6 +68,7 @@ function App() {
           element={
             <ProtectedRoute>
               <User />
+              <NavBar />
             </ProtectedRoute>
           }
         />

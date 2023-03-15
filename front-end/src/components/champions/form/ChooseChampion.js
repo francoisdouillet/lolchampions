@@ -1,6 +1,4 @@
-import Searchchamp from "../../add/Searchchamp"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Button } from "@mui/material";
+import Searchchamp from "../../utils/Searchchamp"
 
 const ChooseChampion = ({formData, setFormData, page, setPage }) => {
     function champ(champ) {

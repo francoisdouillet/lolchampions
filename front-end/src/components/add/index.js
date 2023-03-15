@@ -1,4 +1,3 @@
-import NavBar from "../navbar/Navbar";
 import { useState } from "react";
 import Role from "./Role";
 import Mychamp from "./Mychamp";
@@ -60,7 +59,6 @@ function Add() {
     <div className="formadd">
       <PageDisplay />
       <Navigation page={page} setPage={setPage} />
-      <NavBar />
     </div>
   );
 }

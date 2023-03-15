@@ -1,15 +1,15 @@
 import { OutlinedInput } from "@mui/material";
 import { useState } from "react";
-import Allchamps from "../utils/Allchamp";
+import Allchamps from "./Allchamp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
 
 
-function Searchchamp({ champ, page, setPage }) {
+function Searchchamp({ champ, page, setPage, className, setMatchup }) {
   const champs = Allchamps();
   const [searchVal, setSearchVal] = useState("");
   const [selectedChamp, setSelectedChamp] = useState(null)
-  console.log(selectedChamp)
+  // console.log(selectedChamp)
 
   const handleInput = (e) => {
     let firstLeter = e.target.value.charAt(0).toUpperCase();
@@ -22,6 +22,9 @@ function Searchchamp({ champ, page, setPage }) {
   });
 
   function selected(product) {
+    if(className === "champions__matchups") {
+      setMatchup(product)
+    }
     setSelectedChamp(product)
   }
 
@@ -49,7 +52,7 @@ function Searchchamp({ champ, page, setPage }) {
           mb: 2,
         }}
       />
-      <div className="searchchampions__champ">
+      <div className={`${className} searchchampions__champ`}>
         {filteredProducts.map((product, i) => (
           <img
             onClick={() => { selected(product) }}
@@ -63,7 +66,7 @@ function Searchchamp({ champ, page, setPage }) {
           />
         ))}
       </div>
-      <div className='champions__navigation'>
+      {className !== "champions__matchups" && (<div className='champions__navigation'>
         <Button>
           <ArrowBackIcon
             onClick={() => {
@@ -78,7 +81,7 @@ function Searchchamp({ champ, page, setPage }) {
         <Button variant='contained' sx={{ marginRight: '8vw', height: '100%' }} onClick={onSubmit}>
           Suivant
         </Button>
-      </div>
+      </div>)}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import NavBar from "../../navbar/Navbar";
 import ChooseChampion from "./ChooseChampion";
 import ChooseItems from "./ChooseItems";
 import ChooseMatchup from "./ChooseMatchup";
@@ -88,7 +87,6 @@ const ChampionsForm = () => {
   return (
     <>
       <PageDisplay />
-      <NavBar />
     </>
   );
 };

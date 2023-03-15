@@ -1,4 +1,4 @@
-import Searchchamp from "./Searchchamp"
+import Searchchamp from "../utils/Searchchamp"
 
 function Hischamp({formData, setFormData, page, setPage}){
     function champ(champ) {
