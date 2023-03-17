@@ -1,12 +1,14 @@
-import AllSkillschamp from "../../utils/Allskillschamp"
+import Allskillschamp from "../../utils/Allskillschamp"
 import { useState, useEffect } from "react"
 import { Button } from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ChooseSkills = ({ setFormData, formData, page, setPage }) => {
-    const champion = formData.champions
-    const skills = AllSkillschamp(champion)
+
+    const champion = formData.champion
+    const skills = Allskillschamp(champion)
+
     const [skillsSets, setSkillsSets] = useState([])
 
     useEffect(() => {
@@ -49,24 +51,16 @@ const ChooseSkills = ({ setFormData, formData, page, setPage }) => {
     }
 
     function onSubmit() {
-        // 
-        // console.log(skillsSets)
-        // Parcourir chaque ensemble de compétences (skillsSet)
         for (let i = 0; i < skillsSets.length; i++) {
             const skills = skillsSets[i].skills;
-
-            // Vérifier chaque tableau de compétences
             for (let j = 0; j < skills.length; j++) {
                 const skill = skills[j];
-
-                // Vérifier si le tableau est vide ou si une entrée est undefined
                 if (!skill || skills.length < 18 || skill.includes(undefined)) {
                     alert('pas bon')
                     return
                 }
             }
         }
-
         // Si toutes les validations passent, retourner true
         setFormData({ ...formData, skills: skillsSets })
         setPage(page + 1)
@@ -76,7 +70,7 @@ const ChooseSkills = ({ setFormData, formData, page, setPage }) => {
 
     return (
         <div className="champions">
-            <h1>Quels runes choisissez-vous ?</h1>
+            <h1>Quels sorts montez-vous ?</h1>
             {skillsSets.map((skill, index) => (
                 <div key={index}>
                     <input

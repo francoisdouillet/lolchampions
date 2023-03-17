@@ -47,7 +47,7 @@ const ChooseItems = ({formData, setFormData, page, setPage}) => {
   console.log(itemsSets);
   return (
     <div className="champions">
-      <h1>Quels runes utilisez-vous ?</h1>
+      <h1>Quels items utilisez-vous ?</h1>
       {itemsSets.map((setItems, index) => (
         <div key={index}>
           <input

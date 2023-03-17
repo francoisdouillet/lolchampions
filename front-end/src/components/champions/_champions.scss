@@ -198,8 +198,15 @@
         }
     }
     &__matchups {
-        max-height: 50vw;
-        overflow: scroll;
+        display: flex;
+        align-items: center;
+        & img {
+            width: 20vw;
+        }
+        &--search {
+            max-height: 50vw;
+            overflow: scroll;
+        }
     }
     &__navigation {
         z-index: 10;

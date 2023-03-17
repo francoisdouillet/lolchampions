@@ -5,7 +5,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
 
 
-function Searchchamp({ champ, page, setPage, className, setMatchup }) {
+function Searchchamp({ champ, page, setPage, className, setMatchupsSets, matchupsSets, index }) {
   const champs = Allchamps();
   const [searchVal, setSearchVal] = useState("");
   const [selectedChamp, setSelectedChamp] = useState(null)
@@ -22,8 +22,19 @@ function Searchchamp({ champ, page, setPage, className, setMatchup }) {
   });
 
   function selected(product) {
-    if(className === "champions__matchups") {
-      setMatchup(product)
+    if(className === "champions__matchups--search") {
+      const alreadyExists = matchupsSets.some(set => set.matchup === product);
+      if (alreadyExists) {
+        alert('Ce champion est déjà sélectionné');
+        return;
+      }
+      const newMatchupSet = {
+        ...matchupsSets[index],
+        matchup: product
+    };
+    const newMatchupSets = [...matchupsSets];
+    newMatchupSets[index] = newMatchupSet;
+    setMatchupsSets(newMatchupSets);
     }
     setSelectedChamp(product)
   }
