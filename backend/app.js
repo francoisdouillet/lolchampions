@@ -32,8 +32,10 @@ app.use(bodyParser.json());
 
 const userRoutes = require("./routes/user");
 const matchupRoutes = require('./routes/matchup')
+const championRoutes = require('./routes/champion')
 
 app.use("/api/auth", userRoutes);
 app.use("/api/matchup", matchupRoutes)
+app.use("/api/champion", championRoutes)
 
 module.exports = app;  
