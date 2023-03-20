@@ -29,3 +29,16 @@ exports.getChampions = (req, res, next) => {
         })
 
 }
+
+exports.getOneChampion = (req, res, next) => {
+    Champion.findOne({ _id: req.params.id })
+        .then((champion) => {
+            if (!champion) {
+                return res.status(404).json({ message: "Champion not found" });
+            }
+            res.status(200).json(champion);
+        })
+        .catch((error) => {
+            res.status(400).json({ error });
+        });
+};
