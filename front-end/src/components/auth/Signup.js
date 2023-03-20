@@ -33,7 +33,7 @@ function Signup() {
     console.log(userInformation)
     try {
       const response = await axios.post(
-        "https://lolchampions-3lii.vercel.app/api/auth/signup",
+        "http://localhost:3000/api/auth/signup",
         userInformation
       );
       console.log(response)

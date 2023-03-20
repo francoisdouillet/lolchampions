@@ -10,6 +10,7 @@ import Historic from "./components/home/historic/Historic";
 import Champions from "./components/champions";
 import ChampionsForm from "./components/champions/form";
 import NavBar from "./components/navbar/Navbar";
+import ChampionSheet from "./components/champions/championsheet/ChampionSheet";
 
 function App() {
   return (
@@ -50,6 +51,15 @@ function App() {
         element= {
           <ProtectedRoute>
             <ChampionsForm />
+            <NavBar />
+          </ProtectedRoute>
+        }
+        />
+        <Route 
+        path="/champions/:id"
+        element= {
+          <ProtectedRoute>
+            <ChampionSheet />
             <NavBar />
           </ProtectedRoute>
         }
