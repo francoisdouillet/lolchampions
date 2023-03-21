@@ -27,7 +27,6 @@ mongoose.connect(process.env.DB_URI, {
     );
     next();
   });
-  app.listen(process.env.PORT || 3000)
 app.use(bodyParser.json());
 
 const userRoutes = require("./routes/user");

@@ -32,7 +32,7 @@ function Signin() {
     };
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        "https://lolchampions-xcdr-francoisdouillet.vercel.app/api/auth/login",
         userInformation
       ).then((response) => {
         localStorage.setItem("isAuthenticated", "true");
