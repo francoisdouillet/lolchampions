@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function GetOneSheet (sheetId) {
+export default function GetOneSheet ({id}) {
     const [sheet, setSheet] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/champion/sheet/${sheetId.id}`)
+        axios.get(`http://localhost:3000/api/champion/sheet/${id}`)
             .then(response => {
                 setSheet(response.data)
             })

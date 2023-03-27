@@ -33,8 +33,13 @@ function Signup() {
     console.log(userInformation)
     try {
       const response = await axios.post(
-        "https://uptight-tam-pig.cyclic.app/api/auth/signup",
-        userInformation
+        "http://localhost:3000/api/auth/signup",
+        userInformation,
+        {
+          headers: {
+            'Origin': 'http://localhost:3001'
+          }
+        }
       );
       console.log(response)
       alert('Utilisateur créé')

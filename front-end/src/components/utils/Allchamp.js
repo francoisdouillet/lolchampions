@@ -5,7 +5,7 @@ export default function Allchamp() {
 
   useEffect(() => {
       fetch(
-        `https://ddragon.leagueoflegends.com/cdn/13.4.1/data/fr_FR/champion.json`
+        `https://ddragon.leagueoflegends.com/cdn/13.6.1/data/fr_FR/champion.json`
       )
         .then((response) => {
           return response.json();

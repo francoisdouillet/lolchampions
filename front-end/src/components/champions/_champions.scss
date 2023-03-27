@@ -176,6 +176,8 @@
     }
     &__skills {
         display: flex;
+        margin: 0 auto;
+        margin-top: 15px;
         & div {
             position: relative;
             display: flex;
@@ -206,6 +208,106 @@
         &--search {
             max-height: 50vw;
             overflow: scroll;
+        }
+    }
+    &__sheet {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px;
+        &--image {
+            position: relative;
+            & div {
+                z-index: 2;
+                position: absolute;
+                top: 0;
+                right: 0;
+                & img {
+                    width: 50px;
+                }
+            }
+        }
+        &--container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 95vw;
+            position: relative;
+            & h3 {
+                float: left;
+                padding-right: 100px;
+                text-align: left;
+            }
+            & .selected {
+                border: 1px solid red;
+            }
+            & .items {
+                display: flex;
+                flex-wrap: wrap;
+                & h3 {
+                    width: 100%;
+                }
+            }
+            & .matchups {
+                &__info {
+                    display: flex;
+                    flex-wrap: wrap;
+                    & img {
+                        margin: 5px;
+                        width: 20%;
+                    }
+                }
+            }
+        }
+        &--number {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        &--row {
+            margin-top: 15px;
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            position: relative;
+            & h4 {
+                position: absolute;
+                top: 0;
+            }
+        }
+        &--circle {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(151, 151, 151);
+            border: 2px solid rgb(65, 65, 65);
+            border-radius: 100%;
+            margin: 5px;
+            position: relative;
+            overflow: hidden;
+            & img {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+            }
+        }
+        &--littleCircle {
+            width: 35px;
+            height: 35px;
+            background-color: rgb(151, 151, 151);
+            border: 2px solid rgb(65, 65, 65);
+            border-radius: 100%;
+            margin: 5px;
+            position: relative;
+            & img {
+                position: absolute;
+                left: 4px;
+                top: 4px;
+                width: 27px;
+                height: 27px;
+            }
         }
     }
     &__navigation {

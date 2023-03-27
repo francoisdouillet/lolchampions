@@ -32,7 +32,7 @@ function Signin() {
     };
     try {
       const response = await axios.post(
-        "https://uptight-tam-pig.cyclic.app/api/auth/login",
+        "http://localhost:3000/api/auth/login",
         userInformation
       ).then((response) => {
         localStorage.setItem("isAuthenticated", "true");

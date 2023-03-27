@@ -69,7 +69,7 @@ function Searchchamp({ champ, page, setPage, className, setMatchupsSets, matchup
             onClick={() => { selected(product) }}
             key={i}
             alt={product}
-            src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${product}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/champion/${product}.png`}
             style={{
               border: selectedChamp === product ? "3px solid blue" : "",
               cursor: "pointer"
