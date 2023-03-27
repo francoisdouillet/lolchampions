@@ -6,6 +6,9 @@ exports.displayChampion = (req, res, next) => {
     const champion = new Champion({
         ...data
     })
+
+    console.log(champion)
+
     champion
         .save()
         .then(() => {
@@ -39,16 +42,3 @@ exports.getOneChampion = (req, res, next) => {
             res.status(400).json({ error });
         });
 };
-
-exports.deleteChampion = (req, res, next) => {
-    Champion.findOneAndDelete({ _id: req.params.id })
-        .then((champion) => {
-            if (!champion) {
-                return res.status(404).json({ message: "Champion not found" });
-            }
-            res.status(200).json({ message: "Champion deleted successfully" });
-        })
-        .catch((error) => {
-            res.status(400).json({ error });
-        });
-}
