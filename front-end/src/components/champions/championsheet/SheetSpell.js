@@ -7,9 +7,9 @@ const SheetSpell = ({ sheet }) => {
   return (
     <div className="champions__sheet--container">
       <h3>SPELLS: {sheet.spells[indexSpell].title}</h3>
-      {sheet.runes.length > 1 && (
+      {sheet.spells.length > 1 && (
         <div className="champions__sheet--number">
-          {Array(sheet.runes.length)
+          {Array(sheet.spells.length)
             .fill()
             .map((_, index) => (
               <button

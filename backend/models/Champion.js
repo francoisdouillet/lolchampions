@@ -1,16 +1,5 @@
 const mongoose = require("mongoose");
 
-// const championSchema = mongoose.Schema({
-//     userId: { type: String, required: true},
-//     role: { type: String, required: true},
-//     champions: { type: String, required: true},
-//     items: [{ title: String, items: [String] }],
-//     matchups: [{ matchup: String, difficulty: String, notes: String }],
-//     runes: [{ title: String, notes: String, runes1: { name: String, rune1: Number, rune2: Number, rune3: Number, rune4: Number }, }],
-//     skills: [{ title: String }],
-//     spells: [{ title: String, notes: String }]
-// })
-
 const championSchema = new mongoose.Schema({
     userId: { type: String, required: true},
     role: {
