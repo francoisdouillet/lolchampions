@@ -6,6 +6,12 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 22vh;
+    position: relative;
+    &__menudrop {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
     &__role {
         display: flex;
         justify-content: space-around;
