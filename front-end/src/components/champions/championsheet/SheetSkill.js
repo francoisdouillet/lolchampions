@@ -32,7 +32,7 @@ const SheetSkill = ({ sheet }) => {
             <span>Q</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'Q' ? 'selected' : ''}>{i + 1}</button>
+                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'Q' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'Q'}>{i + 1}</button>
               ))}
             </div>
           </div>
@@ -44,7 +44,7 @@ const SheetSkill = ({ sheet }) => {
             <span>W</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'W' ? 'selected' : ''}>{i + 1}</button>
+                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'W' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'W'}>{i + 1}</button>
               ))}
             </div>
           </div>
@@ -56,7 +56,7 @@ const SheetSkill = ({ sheet }) => {
             <span>E</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'E' ? 'selected' : ''}>{i + 1}</button>
+                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'E' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'E'}>{i + 1}</button>
               ))}
             </div>
           </div>
@@ -68,7 +68,7 @@ const SheetSkill = ({ sheet }) => {
             <span>R</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'R' ? 'selected' : ''}>{i + 1}</button>
+                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'R' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'R'}>{i + 1}</button>
               ))}
             </div>
           </div>

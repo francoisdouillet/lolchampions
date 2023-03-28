@@ -53,7 +53,7 @@ const ChampionSheet = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Modifier</MenuItem>
+          {/* <MenuItem onClick={handleClose}>Modifier</MenuItem> */}
           <MenuItem onClick={onDelete}>Supprimer</MenuItem>
         </Menu>
       </div>
@@ -65,7 +65,7 @@ const ChampionSheet = () => {
             <SheetItem sheet={sheet} />
             <SheetSkill sheet={sheet} />
             <SheetMatchup sheet={sheet} />
-            <ModifyMatchup sheet={sheet}/>
+            <ModifyMatchup sheet={sheet} />
           </>
         ) : null}
       </div>

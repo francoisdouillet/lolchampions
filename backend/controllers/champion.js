@@ -6,9 +6,6 @@ exports.displayChampion = (req, res, next) => {
     const champion = new Champion({
         ...data
     })
-
-    console.log(champion)
-
     champion
         .save()
         .then(() => {
@@ -55,3 +52,22 @@ exports.deleteChampion = (req, res, next) => {
             res.status(400).json({ error });
         });
 }
+
+exports.modifyChampion = (req, res, next) => {
+    const data = req.body;
+  
+    Champion.findOneAndUpdate(
+      { _id: req.params.id },
+      { ...data },
+      { new: true }
+    )
+      .then((champion) => {
+        if (!champion) {
+          return res.status(404).json({ message: "Fiche not found" });
+        }
+        res.status(200).json(champion);
+      })
+      .catch((error) => {
+        res.status(400).json({ error });
+      });
+  };
