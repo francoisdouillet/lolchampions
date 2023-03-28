@@ -2,7 +2,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Button, IconButton, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import SearchChampPopup from "../../utils/SearchChampPopup";
+import SearchChampPopup from "../../../utils/SearchChampPopup";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
@@ -12,17 +12,6 @@ const ModifyMatchup = ({ sheet }) => {
   const [isOpenChamp, setIsOpenChamp] = useState(false);
   const [matchups, setMatchups] = useState(sheet.matchups);
   const navigate = useNavigate()
-  console.log(matchups);
-
-  console.log(sheet);
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
 
   const handleAddMatchup = () => {
     const newMatchup = {
@@ -48,7 +37,6 @@ const ModifyMatchup = ({ sheet }) => {
     };
 
   const handleMatchupChange = (event, index) => {
-    console.log(event);
     const newMatchup = {
       ...matchups[index],
       [event.target.name]: event.target.value,
@@ -68,11 +56,11 @@ const ModifyMatchup = ({ sheet }) => {
 
   return (
     <div className="champions__sheet--container">
-      <Button variant="contained" onClick={handleOpen}>
+      <Button variant="contained" onClick={() => setIsOpen(true)}>
         Modifier les matchups
       </Button>
       <div className={`champions__modify ${isOpen ? "open" : ""}`}>
-        <Button onClick={handleClose} className="champions__modify--close">
+        <Button onClick={() => setIsOpen(false)} className="champions__modify--close">
           <CloseIcon fontSize="large" />
         </Button>
         {matchups.map((matchup, index) => (

@@ -5,8 +5,6 @@ const SheetMatchup = ({ sheet }) => {
   const [selectedMatchup, setSelectedMatchup] = useState(sheet.matchups[0]._id);
   const [searchChampions, setSearchChampions] = useState("");
 
-  console.log(sheet.matchups[0]._id)
-
   const handleInput = (e) => {
     let firstLeter = e.target.value.charAt(0).toUpperCase();
     let resultText = firstLeter + e.target.value.slice(1);

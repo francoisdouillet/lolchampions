@@ -10,7 +10,7 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ModifyMatchup from "./ModifyMatchup";
+import ModifyMatchup from "./Modify/ModifyMatchup";
 
 const ChampionSheet = () => {
   const sheetId = useParams();
@@ -25,6 +25,7 @@ const ChampionSheet = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   async function onDelete() {
     if(window.confirm('Voulez-vous supprimmez cette fiche ?')) {
       try {
@@ -53,7 +54,6 @@ const ChampionSheet = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          {/* <MenuItem onClick={handleClose}>Modifier</MenuItem> */}
           <MenuItem onClick={onDelete}>Supprimer</MenuItem>
         </Menu>
       </div>

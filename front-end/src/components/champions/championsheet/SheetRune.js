@@ -1,29 +1,40 @@
 import { useState } from "react";
 import Allrunes from "../../utils/Allrunes";
 import Allsousrunes from "../../utils/Allsousrunes";
+import EditIcon from "@mui/icons-material/Edit";
+import { IconButton } from "@mui/material";
+import ModifyRune from "./Modify/ModifyRune";
 
 const SheetRune = ({ sheet }) => {
   const runes = Allrunes();
   const sousrunes = Allsousrunes();
   const [indexRune, setIndexRune] = useState(0);
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="champions__sheet--container">
       <h3>RUNES: {sheet.runes[indexRune].title}</h3>
-      {sheet.runes.length > 1 && (
-        <div className="champions__sheet--number">
-          {Array(sheet.runes.length)
-            .fill()
-            .map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setIndexRune(index)}
-                className={index === indexRune ? "selected" : ""}
-              >
-                {index + 1}
-              </button>
-            ))}
-        </div>
-      )}
+      <div className="champions__sheet--number">
+        {sheet.runes.length > 1 && (
+          <>
+            {Array(sheet.runes.length)
+              .fill()
+              .map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setIndexRune(index)}
+                  className={index === indexRune ? "selected" : ""}
+                >
+                  {index + 1}
+                </button>
+              ))}
+          </>
+        )}
+        <IconButton color="primary" sx={{padding: 0}} onClick={() => setIsOpen(true)}>
+          <EditIcon />
+        </IconButton>
+      </div>
+      {/* POPUP POUR MODIFIER MATCHUP */}
+      <ModifyRune isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="champions__sheet--row">
         <h4>{sheet.runes[indexRune].runes1.name}</h4>
         <div className="champions__sheet--circle">

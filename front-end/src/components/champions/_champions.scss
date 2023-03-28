@@ -263,6 +263,10 @@
                     }
                 }
             }
+            & .itemModify {
+                position: absolute;
+                right: 0;
+            }
         }
         &--number {
             position: absolute;

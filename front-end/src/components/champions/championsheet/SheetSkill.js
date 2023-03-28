@@ -1,27 +1,35 @@
 import { useState } from "react";
 import Allskillschamp from "../../utils/Allskillschamp";
+import EditIcon from "@mui/icons-material/Edit";
+import { IconButton } from "@mui/material";
 
 const SheetSkill = ({ sheet }) => {
-  const [indexSkill, setIndexSkill] = useState(0)
+  const [indexSkill, setIndexSkill] = useState(0);
   const skills = Allskillschamp(sheet.champion);
   return (
     <div className="champions__sheet--container">
-        <h3>SKILLS : {sheet.skills[indexSkill].title}</h3>
+      <h3>SKILLS : {sheet.skills[indexSkill].title}</h3>
+      <div className="champions__sheet--number">
         {sheet.skills.length > 1 && (
-        <div className="champions__sheet--number">
-          {Array(sheet.skills.length)
-            .fill()
-            .map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setIndexSkill(index)}
-                className={index === indexSkill ? "selected" : ""}
-              >
-                {index + 1}
-              </button>
-            ))}
-        </div>
-      )}
+          <>
+            {Array(sheet.skills.length)
+              .fill()
+              .map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setIndexSkill(index)}
+                  className={index === indexSkill ? "selected" : ""}
+                >
+                  {index + 1}
+                </button>
+              ))}
+          </>
+        )}
+        <IconButton color="primary" sx={{ padding: 0 }}>
+          <EditIcon />
+        </IconButton>
+      </div>
+
       {skills && (
         <div className="champions__skills">
           <div>
@@ -32,7 +40,15 @@ const SheetSkill = ({ sheet }) => {
             <span>Q</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'Q' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'Q'}>{i + 1}</button>
+                <button
+                  key={i}
+                  className={
+                    sheet.skills[indexSkill].skills[i] === "Q" ? "selected" : ""
+                  }
+                  disabled={sheet.skills[indexSkill].skills[i] !== "Q"}
+                >
+                  {i + 1}
+                </button>
               ))}
             </div>
           </div>
@@ -44,7 +60,15 @@ const SheetSkill = ({ sheet }) => {
             <span>W</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'W' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'W'}>{i + 1}</button>
+                <button
+                  key={i}
+                  className={
+                    sheet.skills[indexSkill].skills[i] === "W" ? "selected" : ""
+                  }
+                  disabled={sheet.skills[indexSkill].skills[i] !== "W"}
+                >
+                  {i + 1}
+                </button>
               ))}
             </div>
           </div>
@@ -56,7 +80,15 @@ const SheetSkill = ({ sheet }) => {
             <span>E</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'E' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'E'}>{i + 1}</button>
+                <button
+                  key={i}
+                  className={
+                    sheet.skills[indexSkill].skills[i] === "E" ? "selected" : ""
+                  }
+                  disabled={sheet.skills[indexSkill].skills[i] !== "E"}
+                >
+                  {i + 1}
+                </button>
               ))}
             </div>
           </div>
@@ -68,7 +100,15 @@ const SheetSkill = ({ sheet }) => {
             <span>R</span>
             <div>
               {[...Array(18)].map((_, i) => (
-                <button key={i} className={sheet.skills[indexSkill].skills[i] === 'R' ? 'selected' : ''} disabled={sheet.skills[indexSkill].skills[i] !== 'R'}>{i + 1}</button>
+                <button
+                  key={i}
+                  className={
+                    sheet.skills[indexSkill].skills[i] === "R" ? "selected" : ""
+                  }
+                  disabled={sheet.skills[indexSkill].skills[i] !== "R"}
+                >
+                  {i + 1}
+                </button>
               ))}
             </div>
           </div>
