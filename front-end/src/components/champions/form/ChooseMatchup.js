@@ -88,7 +88,7 @@ const ChooseMatchup = ({ setFormData, formData, page, setPage }) => {
                         </div>) :
                         <Searchchamp className="champions__matchups--search" setMatchupsSets={setMatchupsSets} matchupsSets={matchupsSets} index={index} />
                     }
-                    <Button variant="contained" onClick={addMatchupSet}>Ajouter un ensemble de rune</Button>
+                    <Button variant="contained" onClick={addMatchupSet}>Ajouter un ensemble de matchup</Button>
                 </div>
             ))}
             <div className='champions__navigation'>

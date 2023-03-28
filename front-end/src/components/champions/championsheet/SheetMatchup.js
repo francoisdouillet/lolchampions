@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const SheetMatchup = ({ sheet }) => {
-  console.log(sheet.matchups);
 
   const [selectedMatchup, setSelectedMatchup] = useState(0);
   const [searchChampions, setSearchChampions] = useState("");
@@ -13,15 +12,15 @@ const SheetMatchup = ({ sheet }) => {
   };
 
   const filteredChampions = sheet.matchups.filter((matchup) =>
-  matchup.matchup.toLowerCase().includes(searchChampions.toLowerCase())
-);
-
-const handleChampionClick = (index) => {
-  const originalIndex = sheet.matchups.findIndex(
-    (matchup) => matchup.matchup === filteredChampions[index].matchup
+    matchup.matchup.toLowerCase().includes(searchChampions.toLowerCase())
   );
-  setSelectedMatchup(originalIndex);
-};
+
+  const handleChampionClick = (index) => {
+    const originalIndex = sheet.matchups.findIndex(
+      (matchup) => matchup.matchup === filteredChampions[index].matchup
+    );
+    setSelectedMatchup(originalIndex);
+  };
 
   return (
     <div className="champions__sheet--container">
@@ -41,7 +40,7 @@ const handleChampionClick = (index) => {
           value={searchChampions}
         />
       </div>
-      <div className="matchups__info">
+      <div className="matchups__image">
         {filteredChampions.map((matchup, index) => (
           <img
             key={index}

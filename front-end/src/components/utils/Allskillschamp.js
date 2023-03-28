@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const Allskillschamp = (champion) => {
     const [skills, setSkills] = useState()
-    console.log(champion)
     useEffect(() => {
         fetch(
           `https://ddragon.leagueoflegends.com/cdn/13.5.1/data/fr_FR/champion/${champion}.json`

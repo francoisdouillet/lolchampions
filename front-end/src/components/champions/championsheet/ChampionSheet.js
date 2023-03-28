@@ -10,6 +10,7 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ModifyMatchup from "./ModifyMatchup";
 
 const ChampionSheet = () => {
   const sheetId = useParams();
@@ -64,6 +65,7 @@ const ChampionSheet = () => {
             <SheetItem sheet={sheet} />
             <SheetSkill sheet={sheet} />
             <SheetMatchup sheet={sheet} />
+            <ModifyMatchup sheet={sheet}/>
           </>
         ) : null}
       </div>

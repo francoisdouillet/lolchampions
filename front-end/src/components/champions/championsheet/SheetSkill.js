@@ -4,7 +4,6 @@ import Allskillschamp from "../../utils/Allskillschamp";
 const SheetSkill = ({ sheet }) => {
   const [indexSkill, setIndexSkill] = useState(0)
   const skills = Allskillschamp(sheet.champion);
-  console.log(skills);
   return (
     <div className="champions__sheet--container">
         <h3>SKILLS : {sheet.skills[indexSkill].title}</h3>
