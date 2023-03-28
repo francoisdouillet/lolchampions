@@ -2,8 +2,10 @@ import { useState } from "react";
 
 const SheetMatchup = ({ sheet }) => {
 
-  const [selectedMatchup, setSelectedMatchup] = useState(0);
+  const [selectedMatchup, setSelectedMatchup] = useState(sheet.matchups[0]._id);
   const [searchChampions, setSearchChampions] = useState("");
+
+  console.log(sheet.matchups[0]._id)
 
   const handleInput = (e) => {
     let firstLeter = e.target.value.charAt(0).toUpperCase();
@@ -15,11 +17,12 @@ const SheetMatchup = ({ sheet }) => {
     matchup.matchup.toLowerCase().includes(searchChampions.toLowerCase())
   );
 
-  const handleChampionClick = (index) => {
-    const originalIndex = sheet.matchups.findIndex(
-      (matchup) => matchup.matchup === filteredChampions[index].matchup
-    );
-    setSelectedMatchup(originalIndex);
+  const selectedMatchupData = sheet.matchups.find(
+    (matchup) => matchup._id === selectedMatchup
+  );
+
+  const handleChampionClick = (id) => {
+    setSelectedMatchup(id);
   };
 
   return (
@@ -28,8 +31,8 @@ const SheetMatchup = ({ sheet }) => {
       <div className="matchups">
         {filteredChampions.length > 0 && (
           <>
-            <h4>DIFFICULTE : {sheet.matchups[selectedMatchup].difficulty}</h4>
-            <p>{sheet.matchups[selectedMatchup].notes}</p>
+            <h4>DIFFICULTE : {selectedMatchupData.difficulty}</h4>
+            <p>{selectedMatchupData.notes}</p>
           </>
         )}
       </div>
@@ -43,11 +46,11 @@ const SheetMatchup = ({ sheet }) => {
       <div className="matchups__image">
         {filteredChampions.map((matchup, index) => (
           <img
-            key={index}
+            key={matchup._id}
             src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${matchup.matchup}.png`}
             alt={matchup.matchup}
-            className={selectedMatchup === index ? "selected" : ""}
-            onClick={() => handleChampionClick(index)}
+            className={selectedMatchup === matchup._id ? "selected" : ""}
+            onClick={() => handleChampionClick(matchup._id)}
           />
         ))}
       </div>
