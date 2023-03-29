@@ -63,7 +63,7 @@ const ChooseSkills = ({ setFormData, formData, page, setPage, modify }) => {
       for (let j = 0; j < skills.length; j++) {
         const skill = skills[j];
         if (!skill || skills.length < 18 || skill.includes(undefined)) {
-          alert("pas bon");
+          alert("Veuillez remplir toutes les compétences");
           return;
         }
       }

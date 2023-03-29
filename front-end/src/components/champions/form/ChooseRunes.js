@@ -202,27 +202,27 @@ const ChooseRunes = ({ setFormData, formData, page, setPage, modify }) => {
     setRunesSets(updatedRuneSet);
   }
   function onSubmit() {
-    // for (let i = 0; i < runesSets.length; i++) {
-    //     const { runes1, runes2, runes3 } = runesSets[i];
-    //     if (
-    //         runes1.name === '' ||
-    //         runes1.rune1 === '' ||
-    //         runes1.rune2 === '' ||
-    //         runes1.rune3 === '' ||
-    //         runes1.rune4 === '' ||
-    //         runes2.name === '' ||
-    //         runes2.rune1.index === '' ||
-    //         runes2.rune1.rune === '' ||
-    //         runes2.rune2.index === '' ||
-    //         runes2.rune2.rune === '' ||
-    //         runes3.rune1 === '' ||
-    //         runes3.rune2 === '' ||
-    //         runes3.rune3 === ''
-    //     ) {
-    //         alert('Veuillez remplir toutes les informations')
-    //         return
-    //     }
-    // }
+    for (let i = 0; i < runesSets.length; i++) {
+        const { runes1, runes2, runes3 } = runesSets[i];
+        if (
+            runes1.name === '' ||
+            runes1.rune1 === '' ||
+            runes1.rune2 === '' ||
+            runes1.rune3 === '' ||
+            runes1.rune4 === '' ||
+            runes2.name === '' ||
+            runes2.rune1.index === '' ||
+            runes2.rune1.rune === '' ||
+            runes2.rune2.index === '' ||
+            runes2.rune2.rune === '' ||
+            runes3.rune1 === '' ||
+            runes3.rune2 === '' ||
+            runes3.rune3 === ''
+        ) {
+            alert('Veuillez remplir toutes les informations')
+            return
+        }
+    }
     if (modify === true) {
       axios
         .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {

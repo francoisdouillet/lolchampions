@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Allspells from "../../utils/Allspells";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -86,6 +86,12 @@ const ChooseSpells = ({ setFormData, formData, page, setPage, modify }) => {
   }
 
   function onSubmit() {
+    for (let i = 0; i < spellSets.length; i++) {
+      if(spellSets[i].spells.length < 2) {
+        alert('Veuillez remplir les deux spells')
+        return
+      }
+    }
     if (modify === true) {
       axios
         .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {

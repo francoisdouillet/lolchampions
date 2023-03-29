@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const SheetMatchup = ({ sheet }) => {
-
   const [selectedMatchup, setSelectedMatchup] = useState(sheet.matchups[0]._id);
   const [searchChampions, setSearchChampions] = useState("");
 
@@ -23,35 +22,43 @@ const SheetMatchup = ({ sheet }) => {
     setSelectedMatchup(id);
   };
 
+  console.log(sheet.matchups[0].matchup);
+
   return (
     <div className="champions__sheet--container">
       <h3>MATCHUP :</h3>
-      <div className="matchups">
-        {filteredChampions.length > 0 && (
-          <>
-            <h4>DIFFICULTE : {selectedMatchupData.difficulty}</h4>
-            <p>{selectedMatchupData.notes}</p>
-          </>
-        )}
-      </div>
-      <div className="matchups__search">
-        <input
-          placeholder="Rechercher"
-          onChange={handleInput}
-          value={searchChampions}
-        />
-      </div>
-      <div className="matchups__image">
-        {filteredChampions.map((matchup, index) => (
-          <img
-            key={matchup._id}
-            src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${matchup.matchup}.png`}
-            alt={matchup.matchup}
-            className={selectedMatchup === matchup._id ? "selected" : ""}
-            onClick={() => handleChampionClick(matchup._id)}
-          />
-        ))}
-      </div>
+      {sheet.matchups[0].matchup === '' ? (
+        ""
+      ) : (
+        <>
+          <div className="matchups">
+            {filteredChampions.length > 0 && (
+              <>
+                <h4>DIFFICULTE : {selectedMatchupData.difficulty}</h4>
+                <p>{selectedMatchupData.notes}</p>
+              </>
+            )}
+          </div>
+          <div className="matchups__search">
+            <input
+              placeholder="Rechercher"
+              onChange={handleInput}
+              value={searchChampions}
+            />
+          </div>
+          <div className="matchups__image">
+            {filteredChampions.map((matchup, index) => (
+              <img
+                key={matchup._id}
+                src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${matchup.matchup}.png`}
+                alt={matchup.matchup}
+                className={selectedMatchup === matchup._id ? "selected" : ""}
+                onClick={() => handleChampionClick(matchup._id)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

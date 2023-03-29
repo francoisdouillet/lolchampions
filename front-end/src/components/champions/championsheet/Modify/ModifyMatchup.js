@@ -23,6 +23,12 @@ const ModifyMatchup = ({ sheet }) => {
   };
 
   const handleSave = () => {
+    for (let i = 0; i < matchups.length; i++) {
+      if(matchups[i].matchup === "" || matchups[i].difficulty === "") {
+        alert('Il manque des informations')
+        return
+      }
+    }
       axios.put(`http://localhost:3000/api/champion/sheet/${sheet._id}`, { matchups })
         .then(res => {
           console.log(res.data);
