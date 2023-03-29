@@ -34,7 +34,7 @@ const SheetRune = ({ sheet }) => {
         </IconButton>
       </div>
       {/* POPUP POUR MODIFIER MATCHUP */}
-      <ModifyRune isOpen={isOpen} setIsOpen={setIsOpen} />
+      <ModifyRune isOpen={isOpen} setIsOpen={setIsOpen} sheet={sheet} />
       <div className="champions__sheet--row">
         <h4>{sheet.runes[indexRune].runes1.name}</h4>
         <div className="champions__sheet--circle">

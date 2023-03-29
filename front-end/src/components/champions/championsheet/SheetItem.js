@@ -13,7 +13,7 @@ const SheetItem = ({ sheet }) => {
           <h3>{singleSheet.title}</h3>
           {singleSheet.items.map((item, i) => (
             <img
-              src={`http://ddragon.leagueoflegends.com/cdn/13.4.1/img/item/${item}`} alt={item}
+              src={`http://ddragon.leagueoflegends.com/cdn/13.4.1/img/item/${item}`} alt={item} key={i}
             />
           ))}
         </div>

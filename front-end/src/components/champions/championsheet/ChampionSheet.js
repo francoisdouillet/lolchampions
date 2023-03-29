@@ -17,6 +17,7 @@ const ChampionSheet = () => {
   const sheet = GetOneSheet({ id: sheetId.id });
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = useState(null);
+  console.log(sheet)
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

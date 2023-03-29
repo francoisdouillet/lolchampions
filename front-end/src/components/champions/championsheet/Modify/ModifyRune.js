@@ -1,7 +1,10 @@
 import { Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import ChooseRunes from "../../form/ChooseRunes";
 
-const ModifyRune = ({isOpen, setIsOpen}) => {
+const ModifyRune = ({isOpen, setIsOpen, sheet}) => {
+
+  const formData = sheet
   return (
     <div className={`champions__modify ${isOpen ? "open" : ""}`}>
       <Button
@@ -10,15 +13,7 @@ const ModifyRune = ({isOpen, setIsOpen}) => {
       >
         <CloseIcon fontSize="large" />
       </Button>
-      
-      <div className="champions__modify--button">
-        <Button variant="contained" sx={{mr: 2}}>
-          Ajouter un ensemble de rune
-        </Button>
-        <Button variant="contained" >
-          Enregistrer
-        </Button>
-      </div>
+      <ChooseRunes formData={formData} modify={true} />
     </div>
   );
 };
