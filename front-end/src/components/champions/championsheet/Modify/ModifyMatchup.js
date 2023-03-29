@@ -27,7 +27,6 @@ const ModifyMatchup = ({ sheet }) => {
         .then(res => {
           console.log(res.data);
           alert('Matchup sauvegardé')
-          setIsOpen(false)
           navigate(`/champions/${sheet._id}`)
           window.location.reload()
         })

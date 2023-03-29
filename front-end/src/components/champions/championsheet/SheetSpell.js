@@ -2,9 +2,11 @@ import { useState } from "react";
 import Allspells from "../../utils/Allspells";
 import EditIcon from "@mui/icons-material/Edit";
 import { IconButton } from "@mui/material";
+import ModifySpell from "./Modify/ModifySpell";
 
 const SheetSpell = ({ sheet }) => {
   const [indexSpell, setIndexSpell] = useState(0);
+  const [isOpen, setIsOpen] = useState(false)
   const spells = Allspells();
   return (
     <div className="champions__sheet--container">
@@ -25,11 +27,12 @@ const SheetSpell = ({ sheet }) => {
               ))}{" "}
           </>
         )}
-        <IconButton color="primary" sx={{padding: 0}}>
+        <IconButton color="primary" sx={{padding: 0}} onClick={() => setIsOpen(true)}>
           <EditIcon />
         </IconButton>
       </div>
-
+      {/*POPUP POUR MODIFIER ITEM*/}
+      <ModifySpell isOpen={isOpen} setIsOpen={setIsOpen} sheet={sheet}/>
       <div className="champions__sheet--row">
         <div className="champions__sheet--circle">
           <img

@@ -2,9 +2,11 @@ import { useState } from "react";
 import Allskillschamp from "../../utils/Allskillschamp";
 import EditIcon from "@mui/icons-material/Edit";
 import { IconButton } from "@mui/material";
+import ModifySkill from "./Modify/ModifySkill";
 
 const SheetSkill = ({ sheet }) => {
   const [indexSkill, setIndexSkill] = useState(0);
+  const [isOpen, setIsOpen] = useState(false)
   const skills = Allskillschamp(sheet.champion);
   return (
     <div className="champions__sheet--container">
@@ -25,11 +27,11 @@ const SheetSkill = ({ sheet }) => {
               ))}
           </>
         )}
-        <IconButton color="primary" sx={{ padding: 0 }}>
+        <IconButton color="primary" sx={{ padding: 0 }} onClick={() => setIsOpen(true)}>
           <EditIcon />
         </IconButton>
       </div>
-
+      <ModifySkill sheet={sheet} isOpen={isOpen} setIsOpen={setIsOpen}/>
       {skills && (
         <div className="champions__skills">
           <div>

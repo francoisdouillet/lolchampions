@@ -1,13 +1,19 @@
 import EditIcon from "@mui/icons-material/Edit";
 import { IconButton } from "@mui/material";
+import ModifyItem from "./Modify/ModifyItem";
+import { useState } from "react";
 
 const SheetItem = ({ sheet }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  console.log(isOpen)
   return (
     <div className="champions__sheet--container">
       <h3>ITEMS :</h3>
-      <IconButton color="primary" sx={{ padding: 0 }} className="itemModify">
+      <IconButton color="primary" sx={{ padding: 0 }} className="itemModify" onClick={() => setIsOpen(true)}>
         <EditIcon />
       </IconButton>
+      {/*POPUP POUR MODIFIER ITEM*/}
+      <ModifyItem isOpen={isOpen} setIsOpen={setIsOpen} sheet={sheet} />
       {sheet.items.map((singleSheet, index) => (
         <div className="items" key={index}>
           <h3>{singleSheet.title}</h3>
