@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const SheetItem = ({ sheet }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
+
   return (
     <div className="champions__sheet--container">
       <h3>ITEMS :</h3>

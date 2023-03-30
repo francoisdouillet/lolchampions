@@ -13,6 +13,7 @@ const SheetRune = ({ sheet }) => {
   return (
     <div className="champions__sheet--container">
       <h3>RUNES: {sheet.runes[indexRune].title}</h3>
+      <p>{sheet.runes[indexRune].notes}</p>
       <div className="champions__sheet--number">
         {sheet.runes.length > 1 && (
           <>

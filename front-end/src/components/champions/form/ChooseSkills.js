@@ -89,8 +89,6 @@ const ChooseSkills = ({ setFormData, formData, page, setPage, modify }) => {
     }
   }
 
-  console.log(skillsSets);
-
   return (
     <div className="champions" style={{ margin: modify ? 0 : undefined }}>
       {modify === true ? "" : <h1>Quels sorts montez-vous ?</h1>}

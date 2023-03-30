@@ -10,6 +10,7 @@ const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
   const [itemsSets, setItemsSets] = useState([]);
   const navigate = useNavigate()
 
+
   useEffect(() => {
     if (formData.items.length === 0) {
       setItemsSets([
@@ -34,6 +35,7 @@ const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
   }
 
   function addItemSet() {
+
     setItemsSets([
       ...itemsSets,
       {
@@ -73,7 +75,6 @@ const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
     }
   }
 
-  console.log(itemsSets);
   return (
     <div className="champions" style={{ margin: modify ? 0 : undefined }}>
       {modify === true ? "" : <h1>Quels items utilisez-vous ?</h1>}

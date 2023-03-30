@@ -22,8 +22,6 @@ const SheetMatchup = ({ sheet }) => {
     setSelectedMatchup(id);
   };
 
-  console.log(sheet.matchups[0].matchup);
-
   return (
     <div className="champions__sheet--container">
       <h3>MATCHUP :</h3>

@@ -11,6 +11,7 @@ const SheetSpell = ({ sheet }) => {
   return (
     <div className="champions__sheet--container">
       <h3>SPELLS: {sheet.spells[indexSpell].title}</h3>
+      <p>{sheet.spells[indexSpell].notes}</p>
       <div className="champions__sheet--number">
         {sheet.spells.length > 1 && (
           <>

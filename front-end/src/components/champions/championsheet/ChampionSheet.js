@@ -15,9 +15,9 @@ import ModifyMatchup from "./Modify/ModifyMatchup";
 const ChampionSheet = () => {
   const sheetId = useParams();
   const sheet = GetOneSheet({ id: sheetId.id });
+  console.log(sheet)
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = useState(null);
-  console.log(sheet)
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
