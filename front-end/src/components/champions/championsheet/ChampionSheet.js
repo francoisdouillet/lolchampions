@@ -45,15 +45,17 @@ const ChampionSheet = () => {
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${sheet.champion}.png`}
         alt={sheet.champion}
+        className="champions__image"
       />
       <div className="champions__menudrop">
-        <IconButton onClick={handleClick}>
-          <MoreVertIcon />
+        <IconButton onClick={handleClick} color="primary">
+          <MoreVertIcon fontSize="large"/>
         </IconButton>
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleClose}
+          color="primary"
         >
           <MenuItem onClick={onDelete}>Supprimer</MenuItem>
         </Menu>

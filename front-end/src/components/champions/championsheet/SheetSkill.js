@@ -27,9 +27,7 @@ const SheetSkill = ({ sheet }) => {
               ))}
           </>
         )}
-        <IconButton color="primary" sx={{ padding: 0 }} onClick={() => setIsOpen(true)}>
-          <EditIcon />
-        </IconButton>
+        <EditIcon onClick={() => setIsOpen(true)} color="primary"/>
       </div>
       <ModifySkill sheet={sheet} isOpen={isOpen} setIsOpen={setIsOpen}/>
       {skills && (

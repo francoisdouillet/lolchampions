@@ -43,6 +43,9 @@ function SearchItems({ itemsSets, setItemsSets, index }) {
         sx={{
           mt: 2,
           mb: 2,
+          color: "white",
+          border: "1px solid white",
+          p: 3
         }}
       />
       <div className="champions__searchitems--items">

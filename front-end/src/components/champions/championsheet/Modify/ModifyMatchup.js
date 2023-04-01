@@ -61,7 +61,7 @@ const ModifyMatchup = ({ sheet }) => {
 
   return (
     <div className="champions__sheet--container">
-      <Button variant="contained" onClick={() => setIsOpen(true)}>
+      <Button variant="contained" sx={{fontWeight: 'bold'}} onClick={() => setIsOpen(true)}>
         Modifier les matchups
       </Button>
       <div className={`champions__modify ${isOpen ? "open" : ""}`}>
@@ -79,7 +79,7 @@ const ModifyMatchup = ({ sheet }) => {
               <>
                 <Button
                   variant="contained"
-                  sx={{ height: "100%" }}
+                  sx={{ height: "100%", width: '22%' }}
                   onClick={() => setIsOpenChamp(true)}
                 >
                   <AddCircleIcon />
@@ -97,9 +97,13 @@ const ModifyMatchup = ({ sheet }) => {
               id="demo-simple-select"
               name="difficulty"
               value={matchup.difficulty}
-              label="role"
               sx={{
                 width: "40vw",
+                color: "white",
+                border: "2px solid white",
+                '& .MuiSvgIcon-root' : {
+                  color: "white"
+                }
               }}
               onChange={(e) => handleMatchupChange(e, index)}
             >

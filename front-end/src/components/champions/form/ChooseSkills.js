@@ -1,6 +1,6 @@
 import Allskillschamp from "../../utils/Allskillschamp";
 import { useState, useEffect } from "react";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const ChooseSkills = ({ setFormData, formData, page, setPage, modify }) => {
   const champion = formData.champion;
   const skills = Allskillschamp(champion);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [skillsSets, setSkillsSets] = useState([]);
 
@@ -69,23 +69,23 @@ const ChooseSkills = ({ setFormData, formData, page, setPage, modify }) => {
       }
     }
     // Si toutes les validations passent, retourner true
-    if(modify === true ) {
-        axios
+    if (modify === true) {
+      axios
         .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {
           skills: skillsSets,
         })
         .then((res) => {
           console.log(res.data);
           alert("Skill sauvegardé");
-          navigate(`/champions/${formData._id}`)
-          window.location.reload()
+          navigate(`/champions/${formData._id}`);
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-        setFormData({ ...formData, skills: skillsSets });
-        setPage(page + 1);
+      setFormData({ ...formData, skills: skillsSets });
+      setPage(page + 1);
     }
   }
 
@@ -94,21 +94,25 @@ const ChooseSkills = ({ setFormData, formData, page, setPage, modify }) => {
       {modify === true ? "" : <h1>Quels sorts montez-vous ?</h1>}
       {skillsSets.map((skill, index) => (
         <div key={index}>
-          <input
-            type="text"
-            placeholder="Titre"
-            value={skill.title}
-            onChange={(event) => updateTitle(index, event.target.value)}
-          />
-          <Button
-            onClick={() => {
-              if (window.confirm("Etes vous sur ?")) {
-                setSkillsSets(skillsSets.filter((_, i) => i !== index));
-              }
-            }}
-          >
-            <DeleteIcon />
-          </Button>
+          <div className="champions__input">
+            <div>
+              <TextField
+                type="text"
+                placeholder="Titre"
+                value={skill.title}
+                onChange={(event) => updateTitle(index, event.target.value)}
+              />
+              <Button
+                onClick={() => {
+                  if (window.confirm("Etes vous sur ?")) {
+                    setSkillsSets(skillsSets.filter((_, i) => i !== index));
+                  }
+                }}
+              >
+                <DeleteIcon />
+              </Button>
+            </div>
+          </div>
           {skills !== undefined && (
             <div className="champions__skills">
               <div>

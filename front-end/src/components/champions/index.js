@@ -5,11 +5,10 @@ import AllChampionSheet from "./championsheet"
 const Champions = () => {
     return (
         <div className="champions">
-            <h1>Bonjour</h1>
+            <h1>Vos fiches de champions</h1>
             <Link to="/champions/add">
-                <Button variant="contained">Creer une fiche de champion</Button>
+                <Button variant="contained" sx={{fontWeight: 'bold', m: 2}}>Creer une fiche de champion</Button>
             </Link>
-            <h2>Vos fiches de champions</h2>
             <AllChampionSheet />
         </div>
     )

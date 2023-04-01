@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
 import SearchItems from "./SearchItems";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -8,8 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
   const [itemsSets, setItemsSets] = useState([]);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (formData.items.length === 0) {
@@ -35,7 +34,6 @@ const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
   }
 
   function addItemSet() {
-
     setItemsSets([
       ...itemsSets,
       {
@@ -79,22 +77,26 @@ const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
     <div className="champions" style={{ margin: modify ? 0 : undefined }}>
       {modify === true ? "" : <h1>Quels items utilisez-vous ?</h1>}
       {itemsSets.map((setItems, index) => (
-        <div key={index}>
-          <input
-            type="text"
-            placeholder="Titre"
-            value={setItems.title}
-            onChange={(event) => updateTitle(index, event.target.value)}
-          />
-          <Button
-            onClick={() => {
-              if (window.confirm("Etes vous sur ?")) {
-                setItemsSets(itemsSets.filter((_, i) => i !== index));
-              }
-            }}
-          >
-            <DeleteIcon />
-          </Button>
+        <div key={index} className="">
+          <div className="champions__input">
+            <div>
+              <TextField
+                type="text"
+                placeholder="Titre"
+                value={setItems.title}
+                onChange={(event) => updateTitle(index, event.target.value)}
+              />
+              <Button
+                onClick={() => {
+                  if (window.confirm("Etes vous sur ?")) {
+                    setItemsSets(itemsSets.filter((_, i) => i !== index));
+                  }
+                }}
+              >
+                <DeleteIcon />
+              </Button>
+            </div>
+          </div>
           <SearchItems
             setItemsSets={setItemsSets}
             itemsSets={itemsSets}

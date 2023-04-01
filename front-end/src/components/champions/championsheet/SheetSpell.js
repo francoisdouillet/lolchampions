@@ -28,9 +28,7 @@ const SheetSpell = ({ sheet }) => {
               ))}{" "}
           </>
         )}
-        <IconButton color="primary" sx={{padding: 0}} onClick={() => setIsOpen(true)}>
-          <EditIcon />
-        </IconButton>
+        <EditIcon onClick={() => setIsOpen(true)} color="primary"/>
       </div>
       {/*POPUP POUR MODIFIER ITEM*/}
       <ModifySpell isOpen={isOpen} setIsOpen={setIsOpen} sheet={sheet}/>

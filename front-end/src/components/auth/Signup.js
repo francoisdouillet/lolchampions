@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link, useNavigate } from 'react-router-dom';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Link, useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import React, { useState } from "react";
 import axios from "axios";
@@ -11,15 +11,15 @@ function Signup() {
     email: "",
     password: "",
     username: "",
-  })
+  });
 
   const handleChange = (e) => {
-      const { id, value } = e.target;
-      setState((prevState) => ({
-        ...prevState,
-        [id]: value,
-      }))
-  }
+    const { id, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 
   const navigate = useNavigate();
 
@@ -30,25 +30,25 @@ function Signup() {
       username: state.username,
       password: state.password,
     };
-    console.log(userInformation)
+    console.log(userInformation);
     try {
       const response = await axios.post(
         "http://localhost:3000/api/auth/signup",
         userInformation,
         {
           headers: {
-            'Origin': 'http://localhost:3001'
-          }
+            Origin: "http://localhost:3001",
+          },
         }
       );
-      console.log(response)
-      alert('Utilisateur créé')
+      console.log(response);
+      alert("Utilisateur créé");
       navigate("/signin");
     } catch (error) {
       console.error(error);
-      alert('BAD REQUEST: Email or Username unavailable')
+      alert("BAD REQUEST: Email or Username unavailable");
     }
-  }
+  };
 
   return (
     <div>
@@ -67,6 +67,7 @@ function Signup() {
           onChange={handleChange}
           value={state.email}
           required
+          color="third"
         />
         <TextField
           sx={{
@@ -82,10 +83,11 @@ function Signup() {
           onChange={handleChange}
           value={state.username}
           required
+          color="third"
         />
         <TextField
           sx={{
-            width: '70%',
+            width: "70%",
             mt: 2,
             mb: 2,
           }}
@@ -97,9 +99,20 @@ function Signup() {
           onChange={handleChange}
           value={state.password}
           required
+          color="third"
         />
-        <Button onClick={handleSubmitClick} sx={{width:'70%',height:'10%', mb:2, mt:2}} variant="contained">S'inscrire</Button>
-        <Link to="/auth"><IconButton><ArrowBackIcon></ArrowBackIcon></IconButton></Link>
+        <Button
+          onClick={handleSubmitClick}
+          sx={{ width: "70%", height: "10%", mb: 2, mt: 2 }}
+          variant="contained"
+        >
+          S'inscrire
+        </Button>
+        <Link to="/auth">
+          <IconButton color="primary">
+            <ArrowBackIcon fontSize="large"></ArrowBackIcon>
+          </IconButton>
+        </Link>
       </form>
     </div>
   );

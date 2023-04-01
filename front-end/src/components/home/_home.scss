@@ -1,97 +1,148 @@
 .home {
   margin-bottom: 12vh;
+  padding: 10px;
 }
 
-
-.graphic,  .historic {
-    margin-top: 10px;
+.graphic {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  &__button {
+    width: 85vw;
+    margin-top: 16px;
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    justify-content: space-between;
+    & button {
+      margin: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 11px;
+      border: 1px solid rgb(230, 172, 113);
+      background: transparent;
+      color: white;
+      &.selected {
+        background-color: rgb(230, 172, 113);
+        color: #21333c;
+      }
+    }
+  }
+  &__chartjs {
+    height: 30vh;
+    display: flex;
     align-items: center;
-    text-align: center;
+    box-sizing: border-box;
+    margin-top: 16px;
+    width: 85vw;
+    padding: 5px;
+    background: #17232c;
+    border: 2px solid #e6ac71;
+    box-shadow: 0px 0.25px 1px rgba(0, 0, 0, 0.039),
+      0px 0.85px 3px rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+  }
 }
 
 .historic {
-    margin-bottom: 12vh;
-    &__container {
-        margin-top: 5vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 12vh;
+  padding: 10px;
+  &__container {
+    margin-top: 16px;
+  }
+  &__matchup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 2px solid #e6ac71;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    &.win {
+      background: linear-gradient(90deg, #286574 0%, #0B2C31 99.99%);
     }
-    &__matchup {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 90vw;
+    &.loose {
+      background: linear-gradient(90deg, #742828 0%, #310b0b 99.99%);
+    }
+    &--info {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      color: white;
+      & img {
+        border: 2px solid #e6ac71;
+        border-radius: 8px;
         height: 10vh;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 10px;
-        & img {
-            height: 100%;
-        }
-        &--hischamp {
-            height: 100%;
-            width: 20vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-left: 2px solid rgb(0, 0, 0);
-            & img {
-                height: 80%;
-            }
-            &.win {
-                background-color: rgb(0, 116, 0);
-            }
-            &.loose {
-                background-color: rgb(182, 0, 0);
-            }
-        }
-        &.win {
-            background-color: rgb(0, 116, 0);
-        }
-        &.loose {
-            background: rgb(182, 0, 0);
-        }
-        &--commentary {
-            width: 90vw;
-        }
+      }
+      & .open {
+        transition: all 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
     }
+    &--commentary {
+      padding: 0;
+      color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      & p {
+        margin-bottom: 5px;
+      }
+      &.slide-in {
+        max-height: 100px;
+      }
+      &.slide-out {
+        max-height: 0;
+      }
+    }
+  }
 }
 
-
 .lds-ring {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #000000;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #747474 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
   }
-  .lds-ring div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border: 8px solid #000000;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #747474 transparent transparent transparent;
+  100% {
+    transform: rotate(360deg);
   }
-  .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
-  }
-  .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-  .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-  @keyframes lds-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
+}

@@ -65,6 +65,7 @@ function Signin() {
           value={state.email}
           onChange={handleChange}
           required
+          color="third"
         />
         <TextField
           sx={{
@@ -80,6 +81,7 @@ function Signin() {
           value={state.password}
           onChange={handleChange}
           required
+          color="third"
         />
         <Button
           onClick={onClickSubmit}
@@ -88,10 +90,10 @@ function Signin() {
         >
           Se connecter
         </Button>
-        <p>Compte admin test email: admin@admin.fr password: Admin123!</p>
+        <p style={{color: "white", margin: '0 auto'}}>Compte test email: admin@admin.fr password: Admin123!</p>
         <Link to="/auth">
-          <IconButton>
-            <ArrowBackIcon></ArrowBackIcon>
+          <IconButton color="primary">
+            <ArrowBackIcon fontSize="large"></ArrowBackIcon>
           </IconButton>
         </Link>
       </form>

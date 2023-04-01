@@ -11,79 +11,108 @@ import Champions from "./components/champions";
 import ChampionsForm from "./components/champions/form";
 import NavBar from "./components/navbar/Navbar";
 import ChampionSheet from "./components/champions/championsheet/ChampionSheet";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function App() {
+  const theme = createTheme({
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          // Name of the slot
+          root: {
+            // Some CSS
+            backgroundColor: "#E6AC71",
+            borderRadius: '5px'
+          },
+        },
+      },
+    },
+    palette: {
+      primary: {
+        main: "#E6AC71",
+      },
+      secondary: {
+        main: "#21333C",
+      },
+      third: {
+        main: "#FFFFFF",
+      },
+    },
+  });
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-              <NavBar />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/historic"
-          element={
-            <ProtectedRoute>
-              <Historic />
-              <NavBar />
-            </ProtectedRoute>
-          }
-        />
-        <Route 
-        path="/champions"
-        element= {
-          <ProtectedRoute>
-            <Champions />
-            <NavBar />
-          </ProtectedRoute>
-        }
-        />
-        <Route 
-        path="/champions/add"
-        element= {
-          <ProtectedRoute>
-            <ChampionsForm />
-            <NavBar />
-          </ProtectedRoute>
-        }
-        />
-        <Route 
-        path="/champions/:id"
-        element= {
-          <ProtectedRoute>
-            <ChampionSheet />
-            <NavBar />
-          </ProtectedRoute>
-        }
-        />
-        <Route
-          path="/add"
-          element={
-            <ProtectedRoute>
-              <Add />
-              <NavBar />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/user"
-          element={
-            <ProtectedRoute>
-              <User />
-              <NavBar />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/historic"
+            element={
+              <ProtectedRoute>
+                <Historic />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/champions"
+            element={
+              <ProtectedRoute>
+                <Champions />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/champions/add"
+            element={
+              <ProtectedRoute>
+                <ChampionsForm />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/champions/:id"
+            element={
+              <ProtectedRoute>
+                <ChampionSheet />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/add"
+            element={
+              <ProtectedRoute>
+                <Add />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user"
+            element={
+              <ProtectedRoute>
+                <User />
+                <NavBar />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
