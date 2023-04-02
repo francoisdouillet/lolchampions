@@ -22,10 +22,18 @@ function App() {
           root: {
             // Some CSS
             backgroundColor: "#E6AC71",
-            borderRadius: '5px'
+            borderRadius: '5px',
           },
         },
       },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            color: "white",
+            border: "2px solid white"
+          }
+        }
+      }
     },
     palette: {
       primary: {

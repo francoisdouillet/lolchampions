@@ -9,12 +9,18 @@ function Role({formData, setFormData, page, setPage}) {
         mt: 4,
         mb: 4,
       }}>
-        <InputLabel id="demo-simple-select-filled-label">Rôle</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={formData.role}
           label="role"
+          sx={{
+            color: "white",
+            border: "2px solid white",
+            '& .MuiSvgIcon-root' : {
+              color: "white"
+            },
+          }}
           onChange={(e) => {
             setFormData({...formData, role: e.target.value})
             setPage(page + 1)

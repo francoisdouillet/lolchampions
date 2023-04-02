@@ -55,9 +55,12 @@ function Difficulty({ formData, setFormData, setPage }) {
           }}
           value={formData.difficulty}
           sx={{
-            width: 200,
-            mt: 0,
-            mb: 1,
+            width: '60%',
+            color: "white",
+            border: "2px solid white",
+            '& .MuiSvgIcon-root' : {
+              color: "white"
+            },
           }}
         >
           <MenuItem value={"facile"}>Facile</MenuItem>
@@ -69,6 +72,7 @@ function Difficulty({ formData, setFormData, setPage }) {
           <div>
             <h2>Game gagné ?</h2>
             <Checkbox
+              sx={{color: "white"}}
               checked={formData.win === true}
               onChange={(e) => {
                 setFormData({ ...formData, win: e.target.checked });
@@ -78,6 +82,7 @@ function Difficulty({ formData, setFormData, setPage }) {
           <div>
             <h2>Match-up gagné ?</h2>
             <Checkbox
+            sx={{color: "white"}}
               checked={formData.winMatchup === true}
               onChange={(e) => {
                 setFormData({ ...formData, winMatchup: e.target.checked });

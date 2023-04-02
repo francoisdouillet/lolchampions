@@ -112,9 +112,9 @@ const ChampionsForm = () => {
       )
     } else if (page === 7) {
       return (
-        <div>
+        <div className="champions">
           <h1>Voulez-vous publiez la fiche de champion</h1>
-          <Button onClick={onSubmit}>Ajoutez</Button>
+          <Button variant="contained" onClick={onSubmit} sx={{fontWeight: 'bold', m: 2}}>Publier la fiche de champion</Button>
         </div>
       )
     }

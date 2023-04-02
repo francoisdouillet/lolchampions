@@ -61,8 +61,6 @@ function Searchchamp({ champ, page, setPage, className, setMatchupsSets, matchup
         sx={{
           mt: 2,
           mb: 2,
-          color: "white",
-          border: "2px solid white"
         }}
       />
       <div className={`${className} searchchampions__champ`}>

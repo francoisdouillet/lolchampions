@@ -23,7 +23,7 @@ const SearchChampPopup = ({ isOpenChamp, setIsOpenChamp, handleMatchupChange, in
   }
 
   return (
-    <div className={`champions__modify champSearch ${isOpenChamp ? "open" : ""}`}>
+    <div className={`champions__modify--choose ${isOpenChamp ? "open" : ""}`}>
       <Button onClick={() => setIsOpenChamp(false)} className="champions__modify--close">
         <CloseIcon fontSize="large" />
       </Button>
