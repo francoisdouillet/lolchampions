@@ -5,7 +5,7 @@ export default function AllSheetByUser () {
     const [sheets, setSheets] = useState([])
     useEffect(() => {
         const userId = localStorage.getItem('userId')
-        axios.get(`http://localhost:3000/api/champion/${userId}`)
+        axios.get(`https://uptight-tam-pig.cyclic.app/api/champion/${userId}`)
             .then(response => {
                 setSheets(response.data)
             })

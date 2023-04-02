@@ -3,7 +3,6 @@ import Role from "./Role";
 import Mychamp from "./Mychamp";
 import Hischamp from "./HisChamp";
 import Difficulty from "./Difficulty";
-import Navigation from "./Navigation";
 
 function Add() {
   const userId = localStorage.getItem('userId')
@@ -58,7 +57,6 @@ function Add() {
   return (
     <div className="formadd">
       <PageDisplay />
-      <Navigation page={page} setPage={setPage} />
     </div>
   );
 }

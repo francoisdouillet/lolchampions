@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Allspells from "../../utils/Allspells";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Alert, Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -87,14 +87,14 @@ const ChooseSpells = ({ setFormData, formData, page, setPage, modify }) => {
 
   function onSubmit() {
     for (let i = 0; i < spellSets.length; i++) {
-      if(spellSets[i].spells.length < 2) {
-        alert('Veuillez remplir les deux spells')
-        return
+      if (spellSets[i].spells.length < 2) {
+        alert("Veuillez remplir les deux spells");
+        return;
       }
     }
     if (modify === true) {
       axios
-        .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {
+        .put(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${formData._id}`, {
           spells: spellSets,
         })
         .then((res) => {
@@ -116,22 +116,29 @@ const ChooseSpells = ({ setFormData, formData, page, setPage, modify }) => {
       {modify === true ? "" : <h1>Quels summoners utilisez-vous ?</h1>}
       {spellSets.map((spellSet, index) => (
         <div className="champions__spells" key={index}>
-          <div className="champions__spells--header">
-            <input
-              type="text"
-              placeholder="Titre"
-              value={spellSet.title}
-              onChange={(event) => updateTitle(index, event.target.value)}
+          <div className="champions__input">
+            <div>
+              <TextField
+                type="text"
+                placeholder="Titre"
+                value={spellSet.title}
+                onChange={(event) => updateTitle(index, event.target.value)}
+              />
+              <Button
+                onClick={() => {
+                  if (window.confirm("Etes vous sur ?")) {
+                    setSpellSets(spellSets.filter((_, i) => i !== index));
+                  }
+                }}
+              >
+                <DeleteIcon />
+              </Button>
+            </div>
+            <textarea
+              placeholder="Ajoutez des notes"
+              value={spellSet.notes}
+              onChange={(event) => updateNotes(index, event.target.value)}
             />
-            <Button
-              onClick={() => {
-                if (window.confirm("Etes vous sur ?")) {
-                  setSpellSets(spellSets.filter((_, i) => i !== index));
-                }
-              }}
-            >
-              <DeleteIcon />
-            </Button>
           </div>
           <div className="champions__spells--choose">
             <div>
@@ -146,11 +153,6 @@ const ChooseSpells = ({ setFormData, formData, page, setPage, modify }) => {
                 );
               })}
             </div>
-            <textarea
-              placeholder="Ajoutez des notes"
-              value={spellSet.notes}
-              onChange={(event) => updateNotes(index, event.target.value)}
-            />
             <div className="champions__spells--selected">
               {spellSet.spells.map((spell, spellIndex) => (
                 <img

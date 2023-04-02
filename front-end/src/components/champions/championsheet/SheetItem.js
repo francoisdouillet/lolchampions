@@ -22,7 +22,7 @@ const SheetItem = ({ sheet }) => {
       {sheet.items && (
         <>
           {sheet.items.map((singleSheet, index) => (
-            <div className="items" key={index}>
+            <div className="champions__sheet--row items" key={index}>
               <h3>{singleSheet.title}</h3>
               {singleSheet.items.map((item, i) => (
                 <img

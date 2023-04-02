@@ -9,22 +9,22 @@ function NavBar() {
   return (
     <nav className="navbar">
       <Link to="/">
-        <IconButton color="primary">
+        <IconButton color="secondary">
           <HomeIcon className="navbar__icon" />
         </IconButton>
       </Link>
       <Link to="/champions">
-        <IconButton color="primary">
+        <IconButton color="secondary">
           <BookmarkAddIcon className='navbar__icon'/>
         </IconButton>
       </Link>
       <Link to="/add">
-        <IconButton color="primary">
+        <IconButton color="secondary">
           <AddCircleIcon className="navbar__icon" />
         </IconButton>
       </Link>
       <Link to="/user">
-        <IconButton color="primary">
+        <IconButton color="secondary">
           <AccountCircleIcon className="navbar__icon" />
         </IconButton>
       </Link>

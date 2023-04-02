@@ -71,7 +71,8 @@ function Searchchamp({ champ, page, setPage, className, setMatchupsSets, matchup
             alt={product}
             src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/champion/${product}.png`}
             style={{
-              border: selectedChamp === product ? "3px solid blue" : "",
+              border: selectedChamp === product ? "3px solid #E6AC71" : "",
+              borderRadius: '8px',
               cursor: "pointer"
             }}
           />

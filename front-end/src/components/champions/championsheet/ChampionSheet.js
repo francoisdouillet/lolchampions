@@ -30,7 +30,7 @@ const ChampionSheet = () => {
   async function onDelete() {
     if(window.confirm('Voulez-vous supprimmez cette fiche ?')) {
       try {
-        const response = await axios.delete(`http://localhost:3000/api/champion/sheet/${sheetId.id}`);
+        const response = await axios.delete(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${sheetId.id}`);
         console.log(response);
         alert("Fiche de champion supprimé !");
         navigate('/champions')
@@ -45,15 +45,17 @@ const ChampionSheet = () => {
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${sheet.champion}.png`}
         alt={sheet.champion}
+        className="champions__image"
       />
       <div className="champions__menudrop">
-        <IconButton onClick={handleClick}>
-          <MoreVertIcon />
+        <IconButton onClick={handleClick} color="primary">
+          <MoreVertIcon fontSize="large"/>
         </IconButton>
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleClose}
+          color="primary"
         >
           <MenuItem onClick={onDelete}>Supprimer</MenuItem>
         </Menu>

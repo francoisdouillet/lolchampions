@@ -30,13 +30,11 @@ const SheetRune = ({ sheet }) => {
               ))}
           </>
         )}
-        <IconButton color="primary" sx={{padding: 0}} onClick={() => setIsOpen(true)}>
-          <EditIcon />
-        </IconButton>
+          <EditIcon onClick={() => setIsOpen(true)} color="primary"/>
       </div>
       {/* POPUP POUR MODIFIER MATCHUP */}
       <ModifyRune isOpen={isOpen} setIsOpen={setIsOpen} sheet={sheet} />
-      <div className="champions__sheet--row">
+      <div className="champions__sheet--row runes">
         <h4>{sheet.runes[indexRune].runes1.name}</h4>
         <div className="champions__sheet--circle">
           <img
@@ -109,7 +107,7 @@ const SheetRune = ({ sheet }) => {
           />
         </div>
       </div>
-      <div className="champions__sheet--row">
+      <div className="champions__sheet--row runes">
         <h4>{sheet.runes[indexRune].runes2.name}</h4>
         <div className="champions__sheet--circle">
           <img

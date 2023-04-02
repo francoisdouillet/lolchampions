@@ -4,7 +4,7 @@ import axios from "axios";
 export default function GetOneSheet ({id}) {
     const [sheet, setSheet] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/champion/sheet/${id}`)
+        axios.get(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${id}`)
             .then(response => {
                 setSheet(response.data)
             })

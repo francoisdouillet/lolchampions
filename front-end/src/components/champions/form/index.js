@@ -32,7 +32,7 @@ const ChampionsForm = () => {
   async function onSubmit() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/champion/",
+        "https://uptight-tam-pig.cyclic.app/api/champion/",
         formData
       );
       console.log(response);
@@ -112,9 +112,9 @@ const ChampionsForm = () => {
       )
     } else if (page === 7) {
       return (
-        <div>
+        <div className="champions">
           <h1>Voulez-vous publiez la fiche de champion</h1>
-          <Button onClick={onSubmit}>Ajoutez</Button>
+          <Button variant="contained" onClick={onSubmit} sx={{fontWeight: 'bold', m: 2}}>Publier la fiche de champion</Button>
         </div>
       )
     }

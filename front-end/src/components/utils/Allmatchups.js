@@ -5,7 +5,7 @@ export default function Allmatchups () {
     const [matchups, setMatchups] = useState([])
     useEffect(() => {
         const userId = localStorage.getItem('userId')
-        axios.get(`http://localhost:3000/api/matchup/${userId}`)
+        axios.get(`https://uptight-tam-pig.cyclic.app/api/matchup/${userId}`)
             .then(response => {
                 setMatchups(response.data.reverse())
             })

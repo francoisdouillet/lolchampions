@@ -1,7 +1,7 @@
 import Allrunes from "../../utils/Allrunes";
 import { useState, useEffect } from "react";
 import Allsousrunes from "../../utils/Allsousrunes";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const ChooseRunes = ({ setFormData, formData, page, setPage, modify }) => {
   const runes = Allrunes();
   const sousrunes = Allsousrunes();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const defaultRuneSet = {
     title: "",
@@ -203,36 +203,36 @@ const ChooseRunes = ({ setFormData, formData, page, setPage, modify }) => {
   }
   function onSubmit() {
     for (let i = 0; i < runesSets.length; i++) {
-        const { runes1, runes2, runes3 } = runesSets[i];
-        if (
-            runes1.name === '' ||
-            runes1.rune1 === '' ||
-            runes1.rune2 === '' ||
-            runes1.rune3 === '' ||
-            runes1.rune4 === '' ||
-            runes2.name === '' ||
-            runes2.rune1.index === '' ||
-            runes2.rune1.rune === '' ||
-            runes2.rune2.index === '' ||
-            runes2.rune2.rune === '' ||
-            runes3.rune1 === '' ||
-            runes3.rune2 === '' ||
-            runes3.rune3 === ''
-        ) {
-            alert('Veuillez remplir toutes les informations')
-            return
-        }
+      const { runes1, runes2, runes3 } = runesSets[i];
+      if (
+        runes1.name === "" ||
+        runes1.rune1 === "" ||
+        runes1.rune2 === "" ||
+        runes1.rune3 === "" ||
+        runes1.rune4 === "" ||
+        runes2.name === "" ||
+        runes2.rune1.index === "" ||
+        runes2.rune1.rune === "" ||
+        runes2.rune2.index === "" ||
+        runes2.rune2.rune === "" ||
+        runes3.rune1 === "" ||
+        runes3.rune2 === "" ||
+        runes3.rune3 === ""
+      ) {
+        alert("Veuillez remplir toutes les informations");
+        return;
+      }
     }
     if (modify === true) {
       axios
-        .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {
+        .put(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${formData._id}`, {
           runes: runesSets,
         })
         .then((res) => {
           console.log(res.data);
           alert("Rune sauvegardé");
-          navigate(`/champions/${formData._id}`)
-          window.location.reload()
+          navigate(`/champions/${formData._id}`);
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);
@@ -248,9 +248,9 @@ const ChooseRunes = ({ setFormData, formData, page, setPage, modify }) => {
       {modify === true ? "" : <h1>Quels runes utilisez-vous? </h1>}
       {runesSets.map((rune, index) => (
         <div key={index}>
-          <div className="champions__runes--input">
+          <div className="champions__input">
             <div>
-              <input
+              <TextField
                 type="text"
                 placeholder="Titre"
                 value={rune.title}
