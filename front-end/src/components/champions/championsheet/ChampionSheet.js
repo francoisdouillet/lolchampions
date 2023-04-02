@@ -30,7 +30,7 @@ const ChampionSheet = () => {
   async function onDelete() {
     if(window.confirm('Voulez-vous supprimmez cette fiche ?')) {
       try {
-        const response = await axios.delete(`http://localhost:3000/api/champion/sheet/${sheetId.id}`);
+        const response = await axios.delete(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${sheetId.id}`);
         console.log(response);
         alert("Fiche de champion supprimé !");
         navigate('/champions')

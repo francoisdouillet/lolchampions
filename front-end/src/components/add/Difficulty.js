@@ -19,7 +19,7 @@ function Difficulty({ formData, setFormData, setPage }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/matchup/",
+        "https://uptight-tam-pig.cyclic.app/api/matchup/",
         { ...formData, commentary: commentary }
       );
       console.log(response);

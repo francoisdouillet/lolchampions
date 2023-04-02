@@ -71,7 +71,7 @@ const ChooseSkills = ({ setFormData, formData, page, setPage, modify }) => {
     // Si toutes les validations passent, retourner true
     if (modify === true) {
       axios
-        .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {
+        .put(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${formData._id}`, {
           skills: skillsSets,
         })
         .then((res) => {

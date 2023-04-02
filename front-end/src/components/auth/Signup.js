@@ -33,7 +33,7 @@ function Signup() {
     console.log(userInformation);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        "https://uptight-tam-pig.cyclic.app/api/auth/signup",
         userInformation,
         {
           headers: {

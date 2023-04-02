@@ -32,7 +32,7 @@ const ChampionsForm = () => {
   async function onSubmit() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/champion/",
+        "https://uptight-tam-pig.cyclic.app/api/champion/",
         formData
       );
       console.log(response);

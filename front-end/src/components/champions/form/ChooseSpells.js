@@ -94,7 +94,7 @@ const ChooseSpells = ({ setFormData, formData, page, setPage, modify }) => {
     }
     if (modify === true) {
       axios
-        .put(`http://localhost:3000/api/champion/sheet/${formData._id}`, {
+        .put(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${formData._id}`, {
           spells: spellSets,
         })
         .then((res) => {

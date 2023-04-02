@@ -29,7 +29,7 @@ const ModifyMatchup = ({ sheet }) => {
         return
       }
     }
-      axios.put(`http://localhost:3000/api/champion/sheet/${sheet._id}`, { matchups })
+      axios.put(`https://uptight-tam-pig.cyclic.app/api/champion/sheet/${sheet._id}`, { matchups })
         .then(res => {
           console.log(res.data);
           alert('Matchup sauvegardé')
