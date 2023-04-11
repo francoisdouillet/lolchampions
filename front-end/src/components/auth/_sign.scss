@@ -1,5 +1,11 @@
+@mixin desktop {
+    @media (min-width: 768px) {
+        @content
+    }
+}
+
 .sign {
-    width: 100vw;
+    min-width: 100vw;
     height: 100vh;
     position: absolute;
     top: 0;

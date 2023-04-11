@@ -14,12 +14,25 @@
     margin: 0;
 }
 
+@mixin desktop {
+    @media (min-width: 768px) {
+        @content
+    }
+}
+html, body {
+    height: 100%;
+}
+
 body {
     background-image: url('./images/background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    @include desktop {
+        background-size: 40%;
+        background-repeat: repeat;
+    }
 }
 
 a {
