@@ -58,6 +58,9 @@ function Signup() {
             width: "70%",
             mt: 2,
             mb: 2,
+            "@media (min-width: 768px)": {
+              width: "20%",
+            },
           }}
           id="email"
           label="Email"
@@ -74,6 +77,9 @@ function Signup() {
             width: "70%",
             mt: 2,
             mb: 2,
+            "@media (min-width: 768px)": {
+              width: "20%",
+            },
           }}
           id="username"
           type="text"
@@ -90,6 +96,9 @@ function Signup() {
             width: "70%",
             mt: 2,
             mb: 2,
+            "@media (min-width: 768px)": {
+              width: "20%",
+            },
           }}
           id="password"
           label="Password"
@@ -103,7 +112,17 @@ function Signup() {
         />
         <Button
           onClick={handleSubmitClick}
-          sx={{ width: "70%", height: "10%", mb: 2, mt: 2 }}
+          sx={{ 
+            width: "70%", 
+            height: "10%", 
+            mb: 2, 
+            mt: 2,
+            fontWeight: 'bold',
+            '@media (min-width: 768px)': {
+              width: "20%",
+              height: '7%'
+            }
+          }}
           variant="contained"
         >
           S'inscrire

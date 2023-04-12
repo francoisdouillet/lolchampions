@@ -1,6 +1,16 @@
+@mixin desktop {
+  @media (min-width: 768px) {
+      @content
+  }
+}
+
 .home {
   margin-bottom: 12vh;
   padding: 10px;
+  @include desktop {
+    margin-top: 8vh;
+    margin-bottom: 0;
+  }
 }
 
 .graphic {

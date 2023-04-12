@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
 
 function Signin() {
@@ -31,20 +31,18 @@ function Signin() {
       password: state.password,
     };
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
-        userInformation
-      ).then((response) => {
-        localStorage.setItem("isAuthenticated", "true");
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("userId", response.data.userId)
-        localStorage.setItem("username", response.data.username)
-        navigate('/');
-      })
-
+      await axios
+        .post("https://uptight-tam-pig.cyclic.app/api/auth/login", userInformation)
+        .then((response) => {
+          localStorage.setItem("isAuthenticated", "true");
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("userId", response.data.userId);
+          localStorage.setItem("username", response.data.username);
+          navigate("/");
+        });
     } catch (error) {
       console.error(error);
-      alert('Mot de passe incorect')
+      alert("Mot de passe incorect");
     }
   }
 
@@ -56,6 +54,9 @@ function Signin() {
             width: "70%",
             mt: 2,
             mb: 2,
+            "@media (min-width: 768px)": {
+              width: "20%",
+            },
           }}
           type="email"
           id="email"
@@ -72,6 +73,9 @@ function Signin() {
             width: "70%",
             mt: 2,
             mb: 2,
+            "@media (min-width: 768px)": {
+              width: "20%",
+            },
           }}
           label="Password"
           variant="filled"
@@ -85,12 +89,22 @@ function Signin() {
         />
         <Button
           onClick={onClickSubmit}
-          sx={{ width: "70%", height: "10%", mb: 2, mt: 2 }}
+          sx={{ 
+            width: "70%", 
+            height: "10%", 
+            mb: 2, 
+            mt: 2,
+            fontWeight: 'bold',
+            '@media (min-width: 768px)': {
+              width: "20%",
+              height: '7%'
+            }
+          }}
           variant="contained"
         >
           Se connecter
         </Button>
-        <p style={{color: "white", margin: '0 auto'}}>Compte test email: admin@admin.fr password: Admin123!</p>
+        <p>Compte test email: admin@admin.fr password: Admin123!</p>
         <Link to="/auth">
           <IconButton color="primary">
             <ArrowBackIcon fontSize="large"></ArrowBackIcon>
