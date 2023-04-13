@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   const matches = useMediaQuery("(min-width: 768px)");
-  console.log(matches);
 
   return (
     <nav className={`navbar ${matches ? "navbar__large" : ""}`}>

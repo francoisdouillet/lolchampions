@@ -14,7 +14,6 @@
 }
 
 .graphic {
-  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -25,6 +24,9 @@
     margin-top: 16px;
     display: flex;
     justify-content: space-between;
+    @include desktop {
+      justify-content: center;
+    }
     & button {
       margin: 2px;
       text-transform: uppercase;
@@ -34,6 +36,10 @@
       border: 1px solid rgb(230, 172, 113);
       background: transparent;
       color: white;
+      @include desktop {
+        margin-right: 20px;
+        margin-left: 20px;
+      }
       &.selected {
         background-color: rgb(230, 172, 113);
         color: #21333c;
@@ -53,6 +59,9 @@
     box-shadow: 0px 0.25px 1px rgba(0, 0, 0, 0.039),
       0px 0.85px 3px rgba(0, 0, 0, 0.19);
     border-radius: 8px;
+    @include desktop {
+      width: 30vw;
+    }
   }
 }
 
@@ -65,6 +74,10 @@
   margin-top: 10px;
   margin-bottom: 12vh;
   padding: 10px;
+  @include desktop {
+    margin-bottom: 0;
+    margin-top: 8vh;
+  }
   &__container {
     margin-top: 16px;
   }
@@ -79,6 +92,9 @@
     border: 2px solid #e6ac71;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    @include desktop {
+      width: 50vw;
+    }
     &.win {
       background: linear-gradient(90deg, #286574 0%, #0B2C31 99.99%);
     }

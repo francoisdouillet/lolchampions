@@ -1,472 +1,500 @@
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
 .champions {
-    margin-top: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 22vh;
+  position: relative;
+  color: white;
+  @include desktop {
+    margin-top: 8vh;
+    margin-bottom: 0;
+  }
+  &__image {
+    border: 2px solid #e6ac71;
+    border-radius: 8px;
+  }
+  &__menudrop {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 30px;
+  }
+  &__role {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+    &--img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 95px;
+      height: 95px;
+      background-color: #e6ac71;
+      border-radius: 100%;
+      padding: 10px;
+      margin: 10px;
+      & img {
+        width: 90%;
+      }
+    }
+  }
+  &__spells {
     padding: 10px;
-    text-align: center;
+    border-radius: 2%;
+    &--header {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(184, 184, 184);
+    }
+    &--choose {
+      & div img {
+        width: 15%;
+      }
+      & textarea {
+        width: 80%;
+      }
+    }
+    &--selected {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__runes {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    & img {
+      width: 15vw;
+    }
+  }
+  &__input {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 22vh;
-    position: relative;
-    color: white;
-    &__image {
-        border: 2px solid #E6AC71;
-        border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 10px;
+    & div {
+      display: flex;
+      justify-content: space-between;
     }
-    &__menudrop {
+    & textarea {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-color: #e6ac71;
+      border-radius: 8px;
+      padding: 8px;
+    }
+  }
+  &__runesSelected {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    &--rune {
+      margin-top: 20px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 25px;
+        width: 5px;
+        height: 95%;
+        background-color: black;
+      }
+    }
+    &--row {
+      min-height: 50px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      & img {
+        width: 50px;
+        height: 50px;
+        margin-left: 15px;
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      & .runes2 {
+        display: flex;
+        flex-direction: column;
+        &__salut {
+          filter: grayscale(100%);
+        }
+      }
+      &.little {
+        & .sousrunes {
+          width: 40px;
+          height: 40px;
+          margin-left: 15px;
+          background-color: gray;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          & img {
+            margin-left: 0;
+            width: 25px;
+            height: 25px;
+          }
+        }
+        & div:nth-child(2) {
+          margin-left: 74px;
+        }
+      }
+    }
+    &--circle {
+      z-index: 2;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(151, 151, 151);
+      border: 2px solid rgb(65, 65, 65);
+      border-radius: 100%;
+      & img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+      &.little {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        left: 7px;
+        & img {
+          position: absolute;
+          left: 4px;
+          top: 4px;
+          width: 27px;
+          height: 27px;
+        }
+      }
+    }
+  }
+  &__searchitems {
+    width: 80vw;
+    height: 40vh;
+    border: 2px solid #e6ac71;
+    border-radius: 10px;
+    overflow: scroll;
+    margin-top: 10px;
+    &--search {
+      min-width: 80%;
+      height: 10%;
+    }
+    &--items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+  }
+  &__items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin-bottom: 20px;
+  }
+  &__skills {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    & div {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-right: 2px;
+      margin-left: 2px;
+      & span {
+        background: grey;
+        color: white;
+        position: absolute;
+        padding: 2px;
+        top: 0;
+        right: 0;
+      }
+      & button {
+        width: 50px;
+        margin: 1px;
+        border-radius: 8px;
+        background-color: #21333c7e;
+        color: white;
+      }
+      & .selected {
+        border: 2px solid #e6ac71;
+        background-color: #21333c;
+        color: white;
+      }
+    }
+  }
+  &__matchups {
+    display: flex;
+    align-items: center;
+    & img {
+      width: 20vw;
+    }
+    &--search {
+      height: 50vw;
+      overflow: scroll;
+    }
+  }
+  &__sheet {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    &--image {
+      border: 2px solid #e6ac71;
+      position: relative;
+      margin: 10px;
+      height: 120px;
+      border-radius: 8px;
+      overflow: hidden;
+      & div {
+        z-index: 2;
         position: absolute;
         top: 0;
         right: 0;
+        background-color: rgba(0, 0, 0, 0.466);
+        border-radius: 50%;
+        height: 50px;
+        & img {
+          width: 50px;
+        }
+      }
     }
-    &__role {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-top: 10vh;
-        &--img {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 95px;
-            height: 95px;
-            background-color: #E6AC71;
-            border-radius: 100%;
+    &--container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      width: 95vw;
+      position: relative;
+      @include desktop {
+        width: 35vw;
+        margin: 20px;
+        padding: 20px;
+        background-color: #21333cc5;
+        border-radius: 8px;
+        &:nth-child(5) {
+            width: 70vw;
+        }
+      }
+      & p {
+        margin-top: 6px;
+      }
+      & h3 {
+        float: left;
+        padding-right: 100px;
+        text-align: left;
+      }
+      & .selected {
+        border: 2px solid #e6ac71;
+        border-radius: 8px;
+      }
+      & .matchups {
+        &__search {
+          margin: 10px;
+          & input {
             padding: 10px;
-            margin: 10px;
-            & img {
-                width: 90%;
-            }
-        }
-    }
-    &__spells {
-        padding: 10px;
-        border-radius: 2%;
-        &--header {
-            display: flex;
-            justify-content: space-between;
-            background-color: rgb(184, 184, 184);
-        }
-        &--choose {
-            & div img {
-                width: 15%;
-            }
-            & textarea {
-                width: 80%;
-            }
-        }
-        &--selected {
-            display: flex;
-            justify-content: center;
-        }
-    }
-    &__runes {
-        display: flex;
-        justify-content: center;
-        margin: 10px;
-        & img {
-            width: 15vw;
-        }
-    }
-    &__input {
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        margin-top: 10px;
-        & div {
-            display: flex;
-            justify-content: space-between;
-        }
-        & textarea {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            background-color: #E6AC71;
+            background: transparent;
+            border: 2px solid #e6ac71;
             border-radius: 8px;
-            padding: 8px;
+            color: white;
+            &::placeholder {
+              font-weight: bold;
+              letter-spacing: 1px;
+            }
+          }
         }
-    }
-    &__runesSelected {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        &--rune {
-            margin-top: 20px;
-            position: relative;
-            &::before {
-                content: '';
-                position: absolute;
-                z-index: 1;
-                left: 25px;
-                width: 5px;
-                height: 95%;
-                background-color: black;
-            }
-        }
-        &--row {
-            min-height: 50px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            & img {
-                width: 50px;
-                height: 50px;
-                margin-left: 15px;
-            }
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-            & .runes2 {
-                display: flex;
-                flex-direction: column;
-                &__salut {
-                    filter: grayscale(100%);
-                }
-            }
-            &.little {
-                & .sousrunes {
-                    width: 40px;
-                    height: 40px;
-                    margin-left: 15px;
-                    background-color: gray;
-                    border-radius: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    & img {
-                        margin-left: 0;
-                        width: 25px;
-                        height: 25px;
-                    }
-                }
-                & div:nth-child(2) {
-                    margin-left: 74px;
-                }
-            }
-        }
-        &--circle {
-            z-index: 2;
-            position: relative;
-            width: 50px;
-            height: 50px;
-            background-color: rgb(151, 151, 151);
-            border: 2px solid rgb(65, 65, 65);
-            border-radius: 100%;
-            & img {
-                width: 50px;
-                height: 50px;
-                position: absolute;
-                left: 0;
-                top: 0;
-                margin: 0;
-            }
-            &.little {
-                width: 35px;
-                height: 35px;
-                position: absolute;
-                left: 7px;
-                & img {
-                    position: absolute;
-                    left: 4px;
-                    top: 4px;
-                    width: 27px;
-                    height: 27px;
-                }
-            }
-        }
-    }
-    &__searchitems {
-        width: 80vw;
-        height: 40vh;
-        border: 2px solid #E6AC71;
-        border-radius: 10px;
-        overflow: scroll;
-        margin-top: 10px;
-            &--search {
-                min-width: 80%;
-                height: 10%;
-            }
-            &--items {
-                display: flex;
-                flex-wrap: wrap;
-                margin-bottom: 20px;
-                justify-content: center;
-            }
-    }
-    &__items {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 80vw;
-        margin-bottom: 20px;
-    }
-    &__skills {
-        display: flex;
-        margin: 0 auto;
-        margin-top: 15px;
-        margin-bottom: 20px;
-        & div {
-            position: relative;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            margin-right: 2px;
-            margin-left: 2px;
-            & span {
-                background: grey;
-                color: white;
-                position: absolute;
-                padding: 2px;
-                top: 0;
-                right: 0; 
-            }
-            & button {
-                width: 50px;
-                margin: 1px;
-                border-radius: 8px;
-                background-color: #21333c7e;
-                color: white;
-            }
-            & .selected {
-                border: 2px solid #E6AC71;
-                background-color: #21333C;
-                color: white;
-            }
-        }
-    }
-    &__matchups {
-        display: flex;
-        align-items: center;
-        & img {
-            width: 20vw;
-        }
-        &--search {
-            height: 50vw;
-            overflow: scroll;
-        }
-    }
-    &__sheet {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 10px;
-        &--image {
-            border: 2px solid #E6AC71;
-            position: relative;
-            margin: 10px;
-            height: 120px;
+        &__image {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          & img {
+            margin: 5px;
+            width: 20%;
             border-radius: 8px;
-            overflow: hidden;
-            & div {
-                z-index: 2;
-                position: absolute;
-                top: 0;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.466);
-                border-radius: 50%;
-                height: 50px;
-                & img {
-                    width: 50px;
-                }
+            @include desktop {
+                width: 10%;
             }
+          }
         }
-        &--container {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            width: 95vw;
-            position: relative;
-            & p {
-                margin-top: 6px;
-            }
-            & h3 {
-                float: left;
-                padding-right: 100px;
-                text-align: left;
-            }
-            & .selected {
-                border: 2px solid #E6AC71;
-                border-radius: 8px;
-            }
-            & .matchups {
-                &__search {
-                    margin: 10px;
-                    & input {
-                        padding: 10px;
-                        background: transparent;
-                        border: 2px solid #E6AC71;
-                        border-radius: 8px;
-                        color: white;
-                        &::placeholder {
-                            font-weight: bold;
-                            letter-spacing: 1px;
-                        }
-                    }
-                }
-                &__image {
-                    display: flex;
-                    justify-content: center;
-                    flex-wrap: wrap;
-                    & img {
-                        margin: 5px;
-                        width: 20%;
-                        border-radius: 8px;
-                    }
-                }
-            }
-            & .itemModify {
-                position: absolute;
-                right: 0;
-            }
-        }
-        &--number {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            right: 0;
-            & button {
-                background-color: #21333C;
-                padding: 5px;
-                padding-right: 10px;
-                padding-left: 10px;
-                border: none;
-                border-radius: 8px;
-                margin-right: 5px;
-                color: white;
-            }
-        }
-        &--row {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            position: relative;
-            & h4 {
-                position: absolute;
-                top: -4px;
-            }
-            &.runes {
-                padding-top: 15px;
-            }
-            &.items {
-                display: flex;
-                flex-wrap: wrap;
-                & h3 {
-                    width: 100vw;
-                }
-                & img {
-                    margin: 2px;
-                }
-            }
-        }
-        &--circle {
-            width: 50px;
-            height: 50px;
-            background-color: #21333C;
-            border: 2px solid rgb(65, 65, 65);
-            border-radius: 100%;
-            margin: 5px;
-            position: relative;
-            overflow: hidden;
-            & img {
-                width: 50px;
-                height: 50px;
-                position: absolute;
-                left: 0;
-                top: 0;
-                margin: 0;
-            }
-        }
-        &--littleCircle {
-            width: 35px;
-            height: 35px;
-            background-color: #21333C;
-            border: 2px solid rgb(65, 65, 65);
-            border-radius: 100%;
-            margin: 5px;
-            position: relative;
-            & img {
-                position: absolute;
-                left: 4px;
-                top: 4px;
-                width: 27px;
-                height: 27px;
-            }
-        }
-    }
-    &__modify {
-        position: fixed;
-        top: 0;
-        left: 0;
+      }
+      & .itemModify {
+        position: absolute;
         right: 0;
-        bottom: 0;
-        max-width: 100vw;
-        background-color: #21333C;
-        z-index: 12;
-        display: flex;
-        flex-direction: column;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        transition: all 0.4s ease-in-out;
-        transform: translateY(100%);
-        &.open {
-            transform: translateY(0);
-        }
-        &--close {
-            position: absolute;
-            width: 35px;
-            top:  0;
-            right: -85%;
-        }
-        &--choose {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            max-width: 100vw;
-            background-color: #21333C;
-            z-index: 13;
-            display: flex;
-            flex-direction: column;
-            overflow-y: scroll;
-            transition: all 0.4s ease-in-out;
-            transform: translateX(100%);
-            &.open {
-                transform: translateX(0);
-            }
-        }
-        &--champion {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            border: 2px solid #E6AC71;
-            border-radius: 8px;
-            margin: 10px;
-            & img {
-                width: 20%;
-                border-radius: 8px;
-            }
-            & textarea {
-                height: 80%;
-                border-radius: 8px;
-            }
-        }
-        &--button {
-            margin: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
+      }
     }
-    &__navigation {
-        z-index: 10;
-        box-shadow: 0px -1px 15px -2px #E6AC71;
-        width: 100vw;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        bottom: 10vh;
-        background-color: #21333cd2;
+    &--number {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include desktop {
+        top: 20px;
+        right: 20px;
+      }
+      & button {
+        background-color: #21333c;
+        padding: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border: none;
+        border-radius: 8px;
+        margin-right: 5px;
+        color: white;
+      }
     }
+    &--row {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      position: relative;
+      & h4 {
+        position: absolute;
+        top: -4px;
+      }
+      &.runes {
+        padding-top: 15px;
+      }
+      &.items {
+        display: flex;
+        flex-wrap: wrap;
+        & h3 {
+          width: 100vw;
+        }
+        & img {
+          margin: 2px;
+        }
+      }
+    }
+    &--circle {
+      width: 50px;
+      height: 50px;
+      background-color: #21333c;
+      border: 2px solid rgb(65, 65, 65);
+      border-radius: 100%;
+      margin: 5px;
+      position: relative;
+      overflow: hidden;
+      & img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+    }
+    &--littleCircle {
+      width: 35px;
+      height: 35px;
+      background-color: #21333c;
+      border: 2px solid rgb(65, 65, 65);
+      border-radius: 100%;
+      margin: 5px;
+      position: relative;
+      & img {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: 27px;
+        height: 27px;
+      }
+    }
+  }
+  &__modify {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100vw;
+    background-color: #21333c;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(100%);
+    &.open {
+      transform: translateY(0);
+    }
+    &--close {
+      position: absolute;
+      width: 35px;
+      top: 0;
+      right: -85%;
+    }
+    &--choose {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-width: 100vw;
+      background-color: #21333c;
+      z-index: 13;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      transition: all 0.4s ease-in-out;
+      transform: translateX(100%);
+      &.open {
+        transform: translateX(0);
+      }
+    }
+    &--champion {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      border: 2px solid #e6ac71;
+      border-radius: 8px;
+      margin: 10px;
+      & img {
+        width: 20%;
+        border-radius: 8px;
+      }
+      & textarea {
+        height: 80%;
+        border-radius: 8px;
+      }
+    }
+    &--button {
+      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__navigation {
+    z-index: 10;
+    box-shadow: 0px -1px 15px -2px #e6ac71;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 10vh;
+    background-color: #21333cd2;
+  }
 }
