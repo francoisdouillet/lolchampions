@@ -90,7 +90,7 @@ function Searchchamp({ champ, page, setPage, className, setMatchupsSets, matchup
             }}
           />
         </Button>
-        <Button variant='contained' sx={{ marginRight: '8vw', height: '100%' }} onClick={onSubmit}>
+        <Button variant='contained' sx={{ margin : '0 auto',  height: '100%' }} onClick={onSubmit}>
           Suivant
         </Button>
       </div>)}

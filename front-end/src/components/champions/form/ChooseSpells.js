@@ -188,7 +188,7 @@ const ChooseSpells = ({ setFormData, formData, page, setPage, modify }) => {
           </Button>
           <Button
             variant="contained"
-            sx={{ marginRight: "8vw", height: "100%" }}
+            sx={{ margin : '0 auto', height: "100%" }}
             onClick={onSubmit}
           >
             Suivant

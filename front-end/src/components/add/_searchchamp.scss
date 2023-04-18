@@ -1,23 +1,35 @@
+@mixin desktop {
+    @media (min-width: 768px) {
+        @content
+    }
+}
+
 .searchchampions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     &__search {
-        min-width: 80%;
+        width: 80vw;
         height: 10%;
+        @include desktop {
+            width: 50vw;
+        }
     }
-
     &__champ {
-        min-width: 100vw;
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 18vh;
         justify-content: center;
-
+        @include desktop {
+            margin-bottom: 0;
+        }
         & img {
             width: 15%;
             margin: 8px;
             box-sizing: border-box;
+            @include desktop {
+                width: 5%;
+            }
         }
     }
 }

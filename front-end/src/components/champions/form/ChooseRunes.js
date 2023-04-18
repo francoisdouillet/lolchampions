@@ -247,7 +247,7 @@ const ChooseRunes = ({ setFormData, formData, page, setPage, modify }) => {
     <div className="champions" style={{ margin: modify ? 0 : undefined }}>
       {modify === true ? "" : <h1>Quels runes utilisez-vous? </h1>}
       {runesSets.map((rune, index) => (
-        <div key={index}>
+        <div key={index} className={modify ? 'desktop' : ''}>
           <div className="champions__input">
             <div>
               <TextField
@@ -794,7 +794,7 @@ const ChooseRunes = ({ setFormData, formData, page, setPage, modify }) => {
             </Button>
             <Button
               variant="contained"
-              sx={{ marginRight: "8vw", height: "100%" }}
+              sx={{ margin : '0 auto',  height: "100%" }}
               onClick={onSubmit}
             >
               Suivant
