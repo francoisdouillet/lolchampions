@@ -6,7 +6,7 @@ function Hischamp({formData, setFormData, page, setPage}){
     }
     
     return (
-        <div>
+        <div className="champions">
            <h1>Quel champion jouait l'ennemi ?</h1>
             <Searchchamp champ={champ} page={page} setPage={setPage}/>
         </div>

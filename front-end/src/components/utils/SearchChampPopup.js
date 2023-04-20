@@ -53,6 +53,7 @@ const SearchChampPopup = ({ isOpenChamp, setIsOpenChamp, handleMatchupChange, in
             src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/champion/${product}.png`}
             style={{
               cursor: "pointer",
+              height: "auto"
             }}
           />
         ))}

@@ -3,7 +3,6 @@
     @content;
   }
 }
-/* continuer la partie ajouter une partie*/
 
 .champions {
   margin-top: 10px;
@@ -498,6 +497,7 @@
     &--choose {
       position: fixed;
       top: 0;
+      left: 0;
       max-width: 100vw;
       background-color: #21333c;
       z-index: 13;
@@ -508,6 +508,7 @@
       transform: translateX(100%);
       & div img {
         width: 20%;
+        margin: 2px;
         @include desktop {
           width: 10%;
         }

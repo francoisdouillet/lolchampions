@@ -61,6 +61,9 @@ function Difficulty({ formData, setFormData, setPage }) {
             '& .MuiSvgIcon-root' : {
               color: "white"
             },
+            "@media (min-width: 768px)": {
+              width: "30%",
+            },
           }}
         >
           <MenuItem value={"facile"}>Facile</MenuItem>
@@ -96,6 +99,9 @@ function Difficulty({ formData, setFormData, setPage }) {
             width: "80%",
             mb: 1,
             mt: 1,
+            "@media (min-width: 768px)": {
+              width: "50%",
+            },
           }}
           id="outlined-multiline-static"
           type="text"
@@ -106,27 +112,21 @@ function Difficulty({ formData, setFormData, setPage }) {
           multiline
           rows={2}
         />
-        <div className="navigation formadd__navigation">
+        <div className="champions__navigation">
+        <Button>
           <ArrowBackIcon
             onClick={() => {
               setPage((page) => page - 1);
             }}
-            className="navigation__send"
-            color="primary"
             sx={{
-              width: "20%",
-              height: "100%",
-              left: 0,
+              width: "50vw",
+              height: "8vh",
             }}
           />
-          <Button
-            variant="contained"
-            className="navigation__send"
-            sx={{ width: "50%", height: "100%", fontWeight: "bold" }}
-            onClick={onSubmit}
-          >
-            SOUMETTRE
-          </Button>
+        </Button>
+        <Button variant='contained' sx={{ margin : '0 auto',  height: '100%' }} onClick={onSubmit}>
+          Soumettre
+        </Button>
         </div>
       </div>
     </>

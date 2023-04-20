@@ -6,7 +6,7 @@ function Mychamp({formData, setFormData, page, setPage}){
     }
     
     return (
-        <div>
+        <div className="champions">
            <h1>Quel champion jouais-tu?</h1>
             <Searchchamp champ={champ} page={page} setPage={setPage}/>
         </div>
