@@ -20,7 +20,7 @@
 // export default ModifyItem
 
 import { useState } from "react";
-import { Button, Modal } from "@mui/material";
+import { Box, Button, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ChooseItems from "../../form/ChooseItems";
 
@@ -33,12 +33,13 @@ const ModifyItem = ({isOpen, setIsOpen, sheet}) => {
 
   return (
     <Modal open={isOpen} onClose={handleClose}>
-      <div className="champions__modify">
+      {/* <Box className="champions__modify">
         <Button onClick={handleClose} className="champions__modify--close">
           <CloseIcon fontSize="large" />
         </Button>
         <ChooseItems formData={formData} modify={true} />
-      </div>
+      </Box> */}
+      <p>salut</p>
     </Modal>
   );
 };
