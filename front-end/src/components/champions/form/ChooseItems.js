@@ -77,7 +77,7 @@ const ChooseItems = ({ formData, setFormData, page, setPage, modify }) => {
     <div className="champions" style={{ margin: modify ? 0 : undefined }}>
       {modify === true ? "" : <h1>Quels items utilisez-vous ?</h1>}
       {itemsSets.map((setItems, index) => (
-        <div key={index} className={modify ? 'desktop' : ''}>
+        <div key={index}>
           <div className="champions__input">
             <div>
               <TextField
