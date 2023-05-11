@@ -17,16 +17,20 @@ const AllChampionSheet = () => {
     adc: adc,
     jungle: jungle,
     support: support
+
   }
+
+  console.log(sheetsChampion)
   return (
     <div className="champions__sheet">
       {sheetsChampion.map((sheet, index) => (
-        <Link to={`/champions/${sheet._id}`} className="champions__sheet--image">
+        <Link to={`/champions/${sheet._id}`} className="champions__sheet--image" aria-label={sheet.champion}>
           <img
             src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${sheet.champion}.png`}
+            alt={sheet.champion}
           />
           <div>
-            <img src={roleImages[sheet.role]} />
+            <img src={roleImages[sheet.role]} alt={roleImages[sheet.role]} />
           </div>
         </Link>
       ))}
