@@ -1,9 +1,11 @@
+import UserFindMatches from "./UserFindMatches";
 import UserInfo from "./UserInfo";
 
 function User() {
     return (
-        <div>
+        <div className="account">
             <UserInfo />
+            <UserFindMatches />
         </div>
     )
 }

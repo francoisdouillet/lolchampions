@@ -13,7 +13,7 @@ const UserInfo = () => {
     }
 
     return (
-        <div className="account">
+        <div>
             <h1>Bonjour {username}</h1>
             <Button variant="contained" onClick={() => handleClick()}>Se déconnecter</Button>
         </div>
