@@ -12,8 +12,41 @@ import ChampionsForm from "./components/champions/form";
 import NavBar from "./components/navbar/Navbar";
 import ChampionSheet from "./components/champions/championsheet/ChampionSheet";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(() => {
+    fetch(
+       `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Drazy le fourbe?api_key=RGAPI-4b544145-49c2-424d-9cc0-2bf92f56a5ca`
+      
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => console.log(response));
+}, []);
+
+useEffect(() => {
+  fetch(
+    'https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/8PJJpfxDj0LDdjBU9xT3e5KNEVypcJubzCmQHg7Li0qjSIG3mu2KRQqg84xfEmuw26bMwpC2grIfGw/ids?start=0&count=20&api_key=RGAPI-4b544145-49c2-424d-9cc0-2bf92f56a5ca'
+  )
+  .then((response) => {
+    return response.json()
+  })
+  .then((response) => console.log(response))
+}, []);
+useEffect(() => {
+  fetch(
+    'https://europe.api.riotgames.com/lol/match/v5/matches/EUW1_6400238589?api_key=RGAPI-4b544145-49c2-424d-9cc0-2bf92f56a5ca'
+  )
+  .then((response) => {
+    return response.json()
+  })
+  .then((response) => console.log(response))
+}, []);
+
+  
   const theme = createTheme({
     components: {
       MuiTextField: {
