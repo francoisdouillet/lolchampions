@@ -59,6 +59,7 @@ const UserFindMatches = () => {
     try {
       const response = await axios.get(`https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=RGAPI-c4a5d030-4099-4728-9fad-08a1c87eeeed`);
       setSummonerId(response.data.puuid);
+      console.log(response.data)
     } catch (error) {
       console.error(error);
     }
@@ -72,6 +73,19 @@ const UserFindMatches = () => {
       console.error(error);
     }
   };
+
+
+  const Test = async () => {
+    try {
+      const response = await axios.get('https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/zEV59LhEOVrIMbAIukqn64C2hn4rpUx3YFj7GFyGBwwoJKE?api_key=RGAPI-c4a5d030-4099-4728-9fad-08a1c87eeeed');
+      const data = response.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  Test()
 
   const handleSubmit = (event) => {
     event.preventDefault();
