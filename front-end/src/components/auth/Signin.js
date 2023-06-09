@@ -104,7 +104,7 @@ function Signin() {
         >
           Se connecter
         </Button>
-        <p>Compte test email: admin@admin.fr password: Admin123!</p>
+        <p>Compte test, email: admin@admin.fr password: Admin123!</p>
         <Link to="/auth">
           <IconButton color="primary">
             <ArrowBackIcon fontSize="large"></ArrowBackIcon>

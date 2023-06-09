@@ -21,6 +21,7 @@ function Auth() {
           <Link to="/signin">Se connecter</Link>
         </Button>
       </div>
+      <p style={{color: "white"}}>Compte test, email: admin@admin.fr password: Admin123!</p>
     </div>
   );
 }
